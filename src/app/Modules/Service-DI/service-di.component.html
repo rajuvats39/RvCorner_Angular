@@ -1,0 +1,48 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Services & Dependency Injection</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Services</span></h3>
+
+        <p>A service in Angular is a class that contains reusable business logic or functionality that can be shared
+            across different components. It is primarily used to encapsulate common functionalities like fetching data
+            from an API, logging, authentication, utility functions, and much more.</p>
+        <p>01) Services allow us to create reusable code and use it for every component that needs it.
+        </p>
+        <p>02) The Services can be injected into components and other services using the dependency injection system.
+        </p>
+        <p>03) The dependencies are declared in the Module using the Provider’s metadata. </p>
+        <p>04) The Angular creates a tree of injectors & Providers that resembles the Component Tree. This is called the
+            hierarchical pattern.</p>
+
+        <b>Services are typically designed to:</b>
+        <p><b>Promote code reusability:</b> Common logic can be abstracted into services so it can be reused in multiple
+            places.</p>
+        <p><b>Encapsulate logic:</b> Business logic is separated from components to keep components clean and focused on
+            view logic.</p>
+        <p><b>Facilitate testing:</b> Services can be unit tested independently of components.</p>
+        <p><b>Enable Dependency Injection:</b> Services are injected into components, other services, or directives to
+            provide their functionality.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Dependency Injection</span></h3>
+
+        <p>Dependency Injection (DI) is a design pattern in which a class receives its dependencies from external
+            sources rather than creating them itself. Angular’s DI system allows you to inject services, other
+            components, or third-party libraries into your Angular classes (components, directives, services, etc.).
+        </p>
+
+        <b>Why Use Dependency Injection?:</b>
+        <p><b>Inversion of Control:</b> Instead of the class being responsible for creating its dependencies, the dependencies are provided by an
+                external system (the Angular injector).</p>
+        <p><b>Modular and maintainable code:</b> Components and services become more modular because they rely on
+            external inputs.</p>
+        <p><b>Testability:</b> Dependencies can be mocked or replaced with test-specific implementations, making unit
+            testing easier.</p>
+        <p><b>Singletons:</b> DI ensures that a single instance of a service can be shared across the application or
+            between components, avoiding unnecessary creation of objects.</p>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="side-nav-content">
+  <ul class="nav-list" [ngClass]="{ 'nav-list-open': sideNavStatus }">
+    @for(item of menuList; track item){
+    <li class="nav-list-item" [ngClass]="{ active: selectedItem === item }" (click)="selectItem(item)">
+      <em class="{{ item.icon }}"></em>
+      <span><a [routerLink]="[item.path]">{{ item.name }}</a></span>
+      <ul *ngIf="item.submenu && item.submenu.length > 0" class="submenu" [ngClass]="{ show: item.isOpen }">
+        <li *ngFor="let subItem of item.submenu" class="submenu-item" [ngClass]="{ active: selectedSubItem === item }"
+          (click)="selectSubItem(item)">
+          <a [routerLink]="subItem.link">{{ subItem.name }}</a>
+        </li>
+      </ul>
+    </li>
+    }
+  </ul>
+</div>

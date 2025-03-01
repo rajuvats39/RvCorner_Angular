@@ -1,0 +1,44 @@
+<div class="row mx-0">
+    <div class="col-12">
+        <div class="row my-2">
+            <div class="col-9">
+                <span class="section-header">USERS DETAILS</span>
+            </div>
+            <div class="col-3">
+                <input type="text" class="form-control" [(ngModel)]="searchDetails" placeholder="Search details" />
+            </div>
+        </div>
+        <div style="text-align: center;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">Name</th>
+                        <th style="text-align: center;">Email</th>
+                        <th style="text-align: center;">Phone</th>
+                        <th style="text-align: center;">Username</th>
+                        <th style="text-align: center;">Website</th>
+                        <th style="text-align: center;">Company</th>
+                        <th style="text-align: center;">Address</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for( user of userData; track user; let i=$index ){
+                    <tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.website}}</td>
+                        <td>{{user.company.name}}</td>
+                        <td>{{user.address.street}},{{user.address.city}}-{{user.address.zipcode}}</td>
+                        <td><button type="button" class="btn btn-light" (click)="addEditData(user)">Edit</button></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

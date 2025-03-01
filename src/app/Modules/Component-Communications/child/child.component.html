@@ -1,0 +1,51 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Child to Parent Communication (Using &#64;Output and EventEmitter)</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>Child-to-parent communication in Angular involves passing data or triggering actions from a child component
+            to its parent. This is a common pattern in component-based architectures like Angular, where components are
+            often hierarchically structured. There are several techniques to achieve child-to-parent communication,
+            including &#64;Output() decorators, services, and view queries.</p>
+        <p> Use Case: When a child component needs to send data or events back to the parent.</p>
+        <p>The child component defines an &#64;Output() property, which is an EventEmitter.</p>
+        <p>The parent component listens to this event and handles the emitted data.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-secondary">Way of Passing the data frop Child to Parent</span></h3>
+        <b>1. Using &#64;Output() and EventEmitter</b>
+        <b>2. Using &#64;ViewChild and `Child Component’s Methods or Properties</b>
+        <b>3. Using Services for Communication (Event Bus Pattern)</b>
+        <b>4. Using ngOnChanges for Parent Listening to Child Input Changes</b>
+
+        <b class="text-success">Received Data from Parent</b>
+        <p>Received from parent: <b class="text-primary">{{ receivedData }}</b></p>
+        <p>Received object: <b class="text-primary">{{ person.name }} is {{ person.age }}</b> years old.</p>
+        <ul>
+            <li *ngFor="let item of items"> <b class="text-primary">{{ item }}</b></li>
+        </ul>
+        <p>Alias received:<b class="text-primary">{{ aliasName }}</b> </p>
+        <p>Updated data: <b class="text-primary">{{ data }}</b></p>
+        <p>Updated input data:<b class="text-primary">{{ receivedinputData }}</b> </p>
+    </div>
+
+    <hr>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg. 1. Using &#64;Output() and EventEmitter</span></h5>
+        <p>
+            Another method is to use &#64;ViewChild in the parent component to access the child component's properties
+            or methods directly. This allows more direct communication but is more tightly coupled.
+        </p>
+        <p> Use Case: When the parent component needs direct access to the child component's methods or properties.</p>
+        <p>The parent component uses the &#64;ViewChild() decorator to get a reference to the child component instance.
+        </p>
+
+        <b class="text-warning">Send Data to Parent</b>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="sendData()">Send Data to Parent</button>
+        </div>
+    </div>
+
+</div>

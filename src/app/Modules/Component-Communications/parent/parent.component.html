@@ -1,0 +1,101 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Parent to Child
+            Communication (Using &#64;Input)</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>Parent-to-child communication is a common pattern where a parent component passes data to its child
+            components. Angular provides the&#64;Input() decorator to facilitate this communication. This allows the
+            child component to receive data dynamically, enabling components to work together efficiently.</p>
+        <b>Use Case</b>
+        <p>01)When a parent component needs to pass data to its child component.</p>
+        <p>02)The child component defines an &#64;Input() property to receive the data from the parent.</p>
+        <p>03)The parent component binds the data to the child component's property using property binding in the
+            template. </p>
+        <p>04)The &#64;Input() decorator in the child component marks a property as a target for receiving data from the
+            parent.</p>
+        <p>05)The parent component passes data to the child via property binding ([childProperty]="parentData").</p>
+
+        <b>Key Points to Remember:</b>
+        <p>&#64;Input Data Binding:</p>
+
+        <p>The parent can bind data to the child component using the square brackets ([]) syntax in the template.
+            Change Detection</p>
+        <p> Angular automatically tracks changes to the &#64;Input() properties and updates the child component when the
+            parent changes the value.</p>
+        <b>Type Safety:</b>
+        <p>You can type your &#64;Input() properties for better type safety, ensuring only valid data types are passed
+            between components.</p>
+
+        <b>Limitations:</b>
+        <p> &#64;Input() should be used only for one-way communication from parent to child. For two-way data binding,
+            use&#64;Output() to send data back from child to parent.
+            Conclusion:</p>
+        <p>The&#64;Input() decorator is a powerful tool in Angular for passing data from parent to child components,
+            whether it's simple data types or complex objects and arrays. Understanding how &#64;Input() works and
+            integrating it with lifecycle hooks like ngOnChanges allows for dynamic, flexible component communication
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg. 1</span></h5>
+        <app-child [receivedData]="parentMessage" [person]="personDetails" [items]="itemList" [name]="parentName"
+            [data]="parentData" [receivedinputData]="inputData" (dataToParent)="receiveData($event)"></app-child>
+        <div class="col-auto mb-2">
+            <button type="button" class="btn btn-primary" (click)="updateData()">Update Data</button>
+        </div>
+        <h5><span class="badge text-bg-secondary">Eg. 2</span></h5>
+        <div class="col-3">
+            <input type="text" class="form-control" [(ngModel)]="inputData" placeholder="Enter data">
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1 Received data Using &#64;Output() and EventEmitter</span></h5>
+        <p>Received Data from Child using &#64;Output:<b class="text-success">{{ dataFromChild }}</b></p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg. 2 Received data Using &#64;ViewChild</span></h5>
+        <app-viewchild></app-viewchild>
+        <p>Received Data from ViewChild:<b class="text-success">{{ messageFromChild }}</b></p>
+        <div class="col-auto">
+            <button type="button" class="btn btn-success" (click)="invokeChildMethod()">Call Child Method</button>
+        </div>
+        <b class="text-warning">{{ childMethodMessage }}</b>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.3 Received data Using Template Reference Variable</span></h5>
+        <p>Sometimes, instead of directly using the component class, we might want to access an HTML element using
+            &#64;ViewChild</p>
+        <p #paragraphRef>Received Data from Template Reference Variable<b class="text-success"></b>This is a paragraph!
+        </p>
+        <div class="col-auto">
+            <button type="button" class="btn btn-primary" (click)="changeText()">Change Text</button>
+        </div>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <app-sibling></app-sibling>
+        <h5><span class="badge text-bg-secondary">Eg.3 Received data Using Service Rxjs/Subject behaviour</span></h5>
+        <p>For more complex applications, where child and parent components might not have a direct relationship (e.g.,
+            sibling components), you can use a shared service to facilitate communication between them. This is
+            particularly useful when components are far apart in the component tree.</p>
+        <p>Received Data from Service -- <b class="text-success">{{ message }}</b></p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <app-sibling></app-sibling>
+        <h5><span class="badge text-bg-secondary">Eg.3 Received data Router</span></h5>
+        <p>.</p>
+        <p>Received Data from Router Using Query Parameters -- <b class="text-success">Id:{{ id }}--Name:{{ name }}</b></p>
+        <hr>
+        <p>Received Data from Router Using Using State Object -- <b class="text-success">Id:{{ id }}--Name:{{ name }}</b></p>
+        <hr>
+        <p>Received Data from Router Using Using Set Get -- <b class="text-success">Name:{{ details.name }}--Age:{{ details.age }} --Position:{{details.position}}</b></p>
+    </div>
+
+</div>

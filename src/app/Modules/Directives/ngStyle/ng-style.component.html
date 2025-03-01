@@ -1,0 +1,50 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">[ngStyle] Directives</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) ngStyle is an attribute directives, That means, ngStyle changes the look and behaviour of a HTML element.
+        </p>
+        <p>02) The ngStyle directives is used to set CSS style dynamically for an HTML element based on a given
+            typscript
+            expression.
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1</span></h5>
+        <div class="col-3">
+            <div [ngStyle]="{'color': color}"><b>I am your typed color!</b></div>
+            <input class="form-control" [(ngModel)]="color" placeholder="Type here to change my color" />
+        </div>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.2</span></h5>
+        <b> Value comming from the component method</b>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.3</span></h5>
+        <div class="col-3" [ngStyle]="{'background-color':status === 'error' ? 'green' : 'blue' }">
+            Raju Kumar Singh!!
+        </div>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.4</span></h5>
+            <p [ngStyle]="{'color': 'purple','font-size': '20px','font-weight': 'bold'}">
+                Multiple styles
+            </p>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.4</span></h5>
+        <div>
+            <button class="btn btn-outline-primary" [style.font-weight]="IsBold ? 'bold' : 'normal'">BUTTON</button>
+        </div>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.5</span></h5>
+        <div>
+            <button class="btn btn-outline-primary"  [style.font-size.px]="FontSize">BUTTON</button>
+        </div>
+
+        <h5><span class="badge text-bg-secondary mt-3">Eg.6</span></h5>
+        <div>
+            <button class="btn btn-outline-primary" [ngStyle]="addCSSStyles()">BUTTON</button>
+        </div>
+    </div>
+</div>

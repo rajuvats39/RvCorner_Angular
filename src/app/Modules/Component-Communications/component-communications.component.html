@@ -1,0 +1,70 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Component Communications</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>
+            Component communication in Angular involves passing data between different components. This is essential for
+            building dynamic applications where components need to share information or notify one another of state
+            changes. There are several ways to achieve component communication in Angular, depending on the relationship
+            between the components
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Way Component Communications</span></h3>
+
+        <h5><a class="badge text-bg-secondary" (click)="viewComponentOnAction('parent')">1. Parent to Child
+                Communication (Using &#64;Input)</a></h5>
+        <p> Use Case: When a parent component needs to pass data to its child component.</p>
+        <p>The child component defines an &#64;Input() property to receive the data from the parent.</p>
+        <p>The parent component binds the data to the child component's property using property binding in the template.
+        </p>
+
+        <h5><a class="badge text-bg-secondary">1.2. Parent to Child Local References in Templates</a></h5>
+        <p>Use Case: A simple way to pass data or interact with a child component in the template without using Angular
+            decorators.</p>
+        <p> You define a local template reference in the parent component template, then access the child component's
+            methods or properties.</p>
+
+        <h5><span class="badge text-bg-secondary">1.3. Parent to Child Using &#64;ContentChild and
+                &#64;ContentChildren</span></h5>
+        <p>Use Case: A simple way to pass data or interact with a child component in the template without using Angular
+            decorators.</p>
+        <p> You define a local template reference in the parent component template, then access the child component's
+            methods or properties.</p>
+
+        <h5><span class="badge text-bg-secondary" (click)="viewComponentOnAction('viewchild')">1.4. Using &#64;ViewChild
+                for Parent-Child Communication</span></h5>
+        <p> Use Case: When the parent component needs direct access to the child component's methods or properties.</p>
+        <p>The parent component uses the &#64;ViewChild() decorator to get a reference to the child component instance.
+        </p>
+
+        <h5><span class="badge text-bg-secondary" (click)="viewComponentOnAction('child')">2. Child to Parent
+                Communication (Using &#64;Output and
+                EventEmitter)</span></h5>
+        <p> Use Case: When a child component needs to send data or events back to the parent.</p>
+        <p>The child component defines an &#64;Output() property, which is an EventEmitter.</p>
+        <p>The parent component listens to this event and handles the emitted data.</p>
+
+
+        <h5><span class="badge text-bg-secondary" (click)="viewComponentOnAction('Sibling')">3. Sibling to Sibling
+                Communication or Unrelated Components(Service with RxJS/Subjects)</span> </h5>
+        <p>Use Case: When two sibling components need to communicate. </p>
+        <p> A shared service can be used to facilitate communication between sibling components. This service can use
+            RxJS Subject or BehaviorSubject to pass data between components.
+        </p>
+        <p>If two components don’t share a direct parent-child or sibling relationship but still need to communicate, a
+            shared service with BehaviorSubject is useful. Unlike Subject, BehaviorSubject retains the latest value,
+            making it more reliable for state sharing across the application.
+        </p>
+
+        <
+
+        <h5><span class="badge text-bg-secondary" (click)="viewComponentOnAction('router')">4. Using Angular Router
+                (Passing Data via Route Parameters)</span>
+        </h5>
+        <p>You can pass data between components using Angular Router. This is especially useful when navigating between
+            components and passing data through URLs or query parameters.</p>
+    </div>
+</div>

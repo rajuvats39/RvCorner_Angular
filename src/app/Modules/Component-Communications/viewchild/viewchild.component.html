@@ -1,0 +1,29 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Using &#64;ViewChild for Parent-Child Communication</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p> Use Case: When the parent component needs direct access to the child component's methods or properties.</p>
+        <p>The parent component uses the &#64;ViewChild() decorator to get a reference to the child component instance.
+        </p>
+        <p>
+            &#64;ViewChild is a decorator that provides access to child components, directives, or DOM elements from the
+            parent component. It allows you to interact with child components and their properties, methods, or DOM
+            elements, enabling parent-child component communication.
+        </p>
+        <b> How &#64;ViewChild Works</b>
+
+        <p>Purpose: To access and manipulate a child component, directive, or HTML element from the parent component.
+        </p>
+        <p>
+            Usage: It is used when the parent needs to call methods or access properties of a child component.
+        </p>
+        <!-- <p>&#64;ViewChild(selector: Type | string, options?: { static?: boolean })</p> -->
+
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg. 1</span></h5>
+        <p>{{ message }}</p>
+    </div>
+</div>

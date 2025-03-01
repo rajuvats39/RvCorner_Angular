@@ -1,0 +1,105 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Set Value in TDF</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">There are two ways you can set the value of the form elements.</span>
+        </h3>
+        <p>
+            1. Two-way data binding.<br />
+            2. Use the template reference variable.
+        </p>
+        <h5><span class="badge text-bg-secondary">Two-way data binding</span></h5>
+        <p>The two-way data binding is the recommended way to set the value in the template-driven forms. The
+            advantageous here is that any changes made in the form are automatically propagated to the component class
+            and changes made in component class are immediately shown in the form.
+        </p>
+
+        <hr>
+
+        <div class="col-12">
+            <form #contactForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="row mx-0">
+                    <div class="col-3">
+                        <label for="firstname">First Name </label>
+                        <input type="text" id="firstname" name="firstname" class="form-control" ngModel>
+                    </div>
+                    <div class="col-3">
+                        <label for="lastname">Last Name </label>
+                        <input type="text" id="lastname" name="lastname" class="form-control" ngModel>
+                    </div>
+                    <div class="col-3">
+                        <label for="email">Email </label>
+                        <input type="text" id="email" name="email" class="form-control" ngModel>
+                    </div>
+                    <div class="col-auto">
+                        <label for="gender">Geneder </label><br />
+                        <input type="radio" value="male" id="gender" name="gender" class="form-check-input" ngModel>
+                        Male
+                        <input type="radio" value="female" id="gender" name="gender" class="form-check-input" ngModel>
+                        Female
+                    </div>
+                    <div class="col-auto mt-3">
+                        <label for="isMarried">Married </label>
+                        <input type="checkbox" id="isMarried" name="isMarried" class="form-check-input ms-2" ngModel>
+                    </div>
+                    <div class="col-3 mt-3">
+                        <label for="country">Country </label>
+                        <select id="country" name="country" class="form-control" ngModel>
+                            <option [ngValue]="country.id" *ngFor="let country of countryList">
+                                {{country.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div ngModelGroup="address">
+                    <div class="row mx-0">
+                        <div class="col-3 mt-3">
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" class="form-control" ngModel>
+                        </div>
+                        <div class="col-3 mt-3">
+                            <label for="street">Street</label>
+                            <input type="text" id="street" name="street" class="form-control" ngModel>
+                        </div>
+                        <div class="col-3 mt-3">
+                            <label for="pincode">Pin Code</label>
+                            <input type="text" id="pincode" name="pincode" class="form-control" ngModel>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <button type="submit" class="btn btn-primary me-2">Submit</button>
+                            <button type="button" class="btn btn-secondary me-2" (click)="changeCountry()">Change
+                                Country</button>
+                            <button type="button" class="btn btn-success me-2" (click)="setDefaults()">Set
+                                Defaults</button>
+                            <button type="button" class="btn btn-danger me-2" (click)="patchValue()">Patch
+                                Value</button>
+                            <button type="button" class="btn btn-warning me-2" (click)="changeAddress()">Change
+                                Address</button>
+                            <button type="button" class="btn btn-info me-2" (click)="reset()">Reset</button>
+                            <button type="button" class="btn btn-dark" (click)="resetForm()">Reset Form</button>
+                        </div>
+                        <div class="card mt-3">
+                            <div class="row">
+                                <div class="col-3">
+                                    <b>Valid</b> {{contactForm.valid}}
+                                </div>
+                                <div class="col-3">
+                                    <b>Touched</b> {{contactForm.touched}}
+                                </div>
+                                <div class="col-3">
+                                    <b>Pristine</b> {{contactForm.pristine}}
+                                </div>
+                                <div class="col-3">
+                                    <b>Dirty</b> {{contactForm.dirty}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

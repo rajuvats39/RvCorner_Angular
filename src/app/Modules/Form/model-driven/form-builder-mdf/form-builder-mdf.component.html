@@ -1,0 +1,70 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Model-driven form using FormBuilder</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>Reactive forms are forms where we define the structure of the form in the component class. i.e. we create the
+            form model with Form Groups, Form Controls, and FormArrays. We also define the validation rules in the
+            component class. Then, we bind it to the HTML form in the template. This is different from the
+            template-driven forms, where we define the logic and controls in the HTML template.
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">FormBuilder</span></h5>
+        <p>
+            The FormBuilder is the helper API to build forms in Angular. It provides shortcuts to create the instance of
+            the FormControl, FormGroup or FormArray. It reduces the code required to write the complex
+            forms.
+        </p>
+
+        <hr>
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <div class="row mx-0">
+                <div class="col-3">
+                    <label for="name">First Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="firstname">
+                </div>
+                <div class="col-3">
+                    <label for="name">Last Name</label>
+                    <input type="text" id="name" class="form-control" formControlName="lastname">
+                </div>
+                <div class="col-3">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" formControlName="email">
+                </div>
+                <div class="col-3">
+                    <label for="country">Country</label>
+                    <select id="country" class="form-control" formControlName="country">
+                        <option value="1">India</option>
+                        <option value="2">USA</option>
+                        <option value="3">England</option>
+                        <option value="4">Singapore</option>
+                    </select>
+                </div>
+                <div class="col-3 my-3">
+                    <label for="gender" class="form-label me-2">Geneder</label><br />
+                    <input type="radio" value="male" id="gender" name="gender" class="form-check-input"
+                        formControlName="gender" value="male">
+                    Male
+                    <input type="radio" value="female" id="gender" name="gender" class="form-check-input"
+                        formControlName="gender" value="female">
+                    Female
+                </div>
+                <div class="col-3 my-3">
+                    <label for="isMarried" class="form-label me-2">Married </label>
+                    <input type="checkbox" id="isMarried" name="isMarried" class="form-check-input"
+                        formControlName="isMarried">
+                </div>
+                <div class="col-12 my-2">
+                    <button type="button" class="btn btn-outline-secondary me-2">Reset</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,56 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">*ngIf Directives</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) The ngIf is a structural directive.</p>
+        <p>02) The ngIf is used to add or remove the element from a webpage based on a given condition.</p>
+        <p>03) If the condition assigned to ngIf returns 'true' it will add the element on which it is used to the
+            webpage,
+            otherwise if the condition returns false then it will remove that element from the webpage.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1</span></h5>
+        <div class="form-check">
+            <label class="form-check-label me-2">Show</label>
+            <input class="form-check-input" type="checkbox" [(ngModel)]="showMe" />
+        </div>
+
+        <h5><span class="badge text-bg-secondary">ngIf</span></h5>
+        <p *ngIf="showMe">
+            ShowMe is checked
+        </p>
+        <p *ngIf="!showMe">
+            ShowMe is unchecked
+        </p>
+
+        <h5><span class="badge text-bg-secondary">ngIf Else</span></h5>
+        <p *ngIf="showMe; else elseBlock1">
+            ShowMe is checked
+        </p>
+        <ng-template #elseBlock1>
+            <p>ShowMe is unchecked Using elseBlock</p>
+        </ng-template>
+
+        <h5><span class="badge text-bg-secondary">ngIf then else</span></h5>
+        <p *ngIf="showMe; then thenBlock2 else elseBlock2">
+            This is not rendered
+        </p>
+        <ng-template #thenBlock2>
+            <p>ShowMe is checked Using thenblock</p>
+        </ng-template>
+        <ng-template #elseBlock2>
+            <p>ShowMe is unchecked Using elseBlock</p>
+        </ng-template>
+
+        <h5><span class="badge text-bg-secondary">using hidden</span></h5>
+        <p [hidden]="showMe">
+            content to render, when the condition is true using hidden property binding
+        </p>
+        <p [hidden]="!showMe">
+            content to render, when the condition is false. using hidden property binding
+        </p>
+    </div>
+</div>

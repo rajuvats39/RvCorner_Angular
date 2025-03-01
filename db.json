@@ -1,0 +1,66 @@
+{
+  "user": [
+    {
+      "id": "rajuvats1",
+      "name": "Raju Kumar Singh",
+      "email": "rajuvats39@gmail.com",
+      "password": "123",
+      "role": "Admin",
+      "isActive": true
+    },
+    {
+      "id": "rajuvats2",
+      "name": "Raju Kumar Singh",
+      "email": "rajuvats39@gmail.com",
+      "password": "123",
+      "role": "",
+      "isActive": false
+    },
+    {
+      "id": "rajuvats3",
+      "name": "Raju Kumar Singh",
+      "email": "rajuvats39@gmail.com",
+      "password": "123",
+      "role": "Admin",
+      "isActive": true
+    },
+    {
+      "id": "rajuvats4",
+      "name": "Raju Kumar Singh",
+      "email": "rajuvats39@gmail.com",
+      "password": "123",
+      "role": "",
+      "isActive": false
+    },
+    {
+      "id": "rajuvats5",
+      "name": "Raju Kumar Singh",
+      "email": "rajuvats39@gmail.com",
+      "password": "123",
+      "role": "Admin",
+      "isActive": true
+    }
+  ],
+  "role": [
+    {
+      "code": "hr",
+      "name": "HR"
+    },
+    {
+      "code": "mr",
+      "name": "MR"
+    },
+    {
+      "code": "er",
+      "name": "ER"
+    },
+    {
+      "code": "cr",
+      "name": "CR"
+    },
+    {
+      "code": "mr",
+      "name": "MR"
+    }
+  ]
+}

@@ -1,0 +1,346 @@
+/* You can add global styles to this file, and also import other style files */
+@use './assets/styles/mydev-variables';
+@import 'ngx-toastr/toastr';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'ngx-toastr/toastr-bs5-alert';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+$body-bg: mydev-variables.$mydev-body-bg;
+$body-color: mydev-variables.$mydev-body-color;
+$body-family-base: mydev-variables.$mydev-font-family;
+$body-size-base: 0.875rem;
+$theme-color: (
+  'primary':mydev-variables.$mydev-primary,
+  'secondary':mydev-variables.$mydev-secondary,
+  'success':mydev-variables.$mydev-success ,
+  'danger':mydev-variables.$mydev-danger,
+  'warning':mydev-variables.$mydev-warning,
+  'info':mydev-variables.$mydev-info,
+  'light':mydev-variables.$mydev-light,
+  'dark':mydev-variables.$mydev-dark,
+  'white':mydev-variables.$mydev-white,
+  'muted':mydev-variables.$mydev-muted
+);
+
+:root {
+  --#{$prefix}body-font-family:#{mydev-variables.$mydev-font-family};
+  --#{$prefix}body-font-size:#{0.875rem};
+  --#{$prefix}body-bg:#{mydev-variables.$mydev-body-bg};
+  --#{$prefix}bg-light:#{mydev-variables.$mydev-light,};
+  --#{$prefix}link-color:#{mydev-variables.$mydev-secondary};
+  --#{$prefix}link-hover-color:#{mydev-variables.$mydev-secondary};
+  --#{$prefix}light-rgb:#{238, 238, 238};
+  --#{$prefix}secondary-rgb:#{0,0,72};
+  --#{$prefix}border-radius: 0.125rem;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.jumbotron {
+  background-color: #fff;
+  padding-top: 32px;
+}
+
+.navbar-text {
+  display: inline-block;
+  padding: 0rem 0.5rem !important;
+  font-size: 1.125rem;
+}
+
+.navbar-dark .navbar-text {
+  color: mydev-variables.$mydev-white !important;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  background-color: #fff;
+  margin: 1.25rem 0 1.25rem 0;
+  box-shadow: 0 .25rem .5rem #e6edef;
+
+  .card-head {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #edf1f7;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    padding: 1rem 1.5rem;
+  }
+}
+
+.margin-r2 {
+  margin-right: 2px;
+}
+
+.mx-n2 {
+  margin: 0 -0.5rem !important;
+}
+
+.mt-n3 {
+  margin-top: -1rem !important;
+}
+
+/* Hide Scrollbars */
+::-webkit-scrollbar,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+a {
+  text-decoration: none !important;
+  font-weight: 600;
+  cursor: pointer;
+  color: mydev-variables.$mydev-primary;
+}
+
+a:hover {
+  text-decoration: underline !important;
+}
+
+.side-nav-content a:hover {
+  text-decoration: none !important;
+}
+
+a.disbled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.cursorLink {
+  cursor: pointer;
+}
+
+.disabledCursor {
+  cursor: not-allowed !important;
+  color: mydev-variables.$mydev-dark-grey;
+}
+
+.activeButton {
+  background-color: mydev-variables.$mydev-medium-grey;
+  border-color: mydev-variables.$mydev-dark-grey;
+}
+
+.numeric-column {
+  text-align: right !important;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.badge-border {
+  border: 1.5px solid;
+  border-radius: 3px;
+  border-color: mydev-variables.$mydev-medium-grey;
+}
+
+.spin {
+  background-color: transparent !important;
+  animation: spin-animation 7s infinite;
+  border: none;
+}
+
+@keyframes spin-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.home-content {
+  margin-top: 35px;
+  margin-bottom: 80px;
+  padding: 5px;
+}
+
+ul {
+  padding: 0;
+}
+
+.row {
+  --bs-gutter-x: 1.875rem !important;
+  margin-right: calc(-0.2*var(--bs-gutter-x)) !important;
+  margin-left: calc(-0.2*var(--bs-gutter-y)) !important;
+}
+
+.form-label {
+  font-weight: bold;
+  font-size: 0.813rem;
+  margin-bottom: 0px !important;
+  color: mydev-variables.$mydev-label;
+}
+
+.value-label {
+  font-weight: 500;
+  font-size: 0.813rem;
+  color: mydev-variables.$base-color;
+}
+
+.section-header {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: mydev-variables.$base-color;
+}
+
+.page-header {
+  font-size: 2rem;
+  font-weight: bold;
+  color: mydev-variables.$base-color;
+}
+
+.modal-header {
+  padding: 0px !important;
+}
+
+
+
+.modal-footer {
+  padding: 5px !important;
+}
+
+.modal {
+  --bs-modal-width: 70% !important;
+  --bs-modal-padding: 1rem;
+  --bs-modal-margin: 0.5rem;
+  --bs-modal-color: ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--bs-modal-zindex);
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.rounded-start {
+  border-radius: 0.125rem 0 0 0.125rem !important;
+}
+
+.rounded-end {
+  border-radius: 0 0.125rem 0.125rem 0 !important;
+}
+
+.imput-group-text {
+  border-color: mydev-variables.$mydev-medium-grey !important;
+  background-color: mydev-variables.$mydev-light-grey;
+}
+
+.form-control {
+  box-shadow: none;
+  border-radius: 0.125rem;
+  padding: 0.313rem 0.75rem;
+  color: mydev-variables.$base-color;
+  border-color: mydev-variables.$mydev-input-border;
+}
+
+.form-control [readonly] {
+  opacity: 1;
+  border-color: mydev-variables.$mydev-light-grey;
+  border-color: mydev-variables.$mydev-medium-grey;
+}
+
+.form-control [readonly]:focus {
+  box-shadow: none;
+  border-width: 1px;
+  border-color: mydev-variables.$mydev-medium-grey;
+}
+
+.form-control :disabled {
+  box-shadow: none;
+  opacity: 40% !important;
+  border-color: mydev-variables.$mydev-input-border;
+}
+
+.form-control::placeholder {
+  font-size: 1rem;
+  font-weight: normal;
+  color: mydev-variables.$mydev-input-border;
+}
+
+.form-control:focus {
+  border-width: 2px;
+  color: mydev-variables.$base-color;
+  box-shadow: 0 0 0 3px mydev-variables.$mydev-highlight-focus;
+  border-color: mydev-variables.$mydev-highlight;
+}
+
+.form-control.ng-invalid.ng-touched {
+  border-width: 2px;
+  color: mydev-variables.$base-color;
+  border-color: mydev-variables.$mydev-danger;
+  box-shadow: 0 0 0 3px mydev-variables.$mydev-danger-focus;
+}
+
+small,
+.small {
+  @extend .fw-normal !optional;
+  font-size: 80 !important;
+}
+
+.light-group-item-action:active {
+  color: mydev-variables.$mydev-white !important;
+  background-color: mydev-variables.$mydev-blue !important;
+}
+
+.list-group-item-action:active {
+  color: mydev-variables.$mydev-white !important;
+  background-color: mydev-variables.$mydev-blue !important;
+}
+
+.alert {
+  padding: 0.813rem 0.813rem 0.75rem !important;
+}
+
+.alert .fas {
+  font-size: 1.125rem;
+  margin-right: 0.05rem;
+}
+
+.alert-success {
+  color: mydev-variables.$mydev-toaster-success-border;
+  border-color: mydev-variables.$mydev-toaster-success-text;
+  background-color: mydev-variables.$mydev-toaster-success-bg;
+}
+
+.alert-danger {
+  color: mydev-variables.$mydev-toaster-error-border;
+  border-color: mydev-variables.$mydev-toaster-error-text;
+  background-color: mydev-variables.$mydev-toaster-error-bg;
+}
+
+.alert-info {
+  color: mydev-variables.$mydev-toaster-info-border;
+  border-color: mydev-variables.$mydev-toaster-info-text;
+  background-color: mydev-variables.$mydev-toaster-info-bg;
+}
+
+.alert-warning {
+  color: mydev-variables.$mydev-toaster-warning-border;
+  border-color: mydev-variables.$mydev-toaster-warning-text;
+  background-color: mydev-variables.$mydev-toaster-warning-bg;
+}

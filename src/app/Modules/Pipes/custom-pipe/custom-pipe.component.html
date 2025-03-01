@@ -1,0 +1,37 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Custom Pipe</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p> Custom pipes are useful when you need a transformation that is not provided by Angular’s built-in pipes.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Types of Custom Pipes</span></h3>
+
+        <h5><span class="badge text-bg-secondary">Pure Pipe</span></h5>
+
+        <h5><span class="badge text-bg-secondary">Impure Pipe</span></h5>
+
+        <h5><span class="badge text-bg-secondary">Impure Pipe</span></h5>
+
+        <h5><span class="badge text-bg-secondary">Chaining Pipes</span></h5>
+
+        <h5><span class="badge text-bg-secondary">Eg. 1</span></h5>
+
+        <div class="row">
+            <h3>Fahrenheit to Celsius </h3>
+        </div>
+        <div class="row">
+            <p> Fahrenheit : <input type="text" [(ngModel)]="Fahrenheit" />
+                Celsius : {{Fahrenheit | tempConverter:'C'}} </p>
+        </div>
+        <div class="row">
+            <h3>Celsius to Fahrenheit </h3>
+        </div>
+        <div class="row">
+            <p> Celsius : <input type="text" [(ngModel)]="celcius" />
+                Fahrenheit : {{celcius | tempConverter:'F'}} </p>
+        </div>
+    </div>
+</div>

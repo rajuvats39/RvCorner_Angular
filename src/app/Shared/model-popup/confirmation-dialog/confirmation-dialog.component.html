@@ -1,0 +1,21 @@
+<div class="col-12 confirmation-dialog">
+    <div class="modal-header row mx-0">
+        <div class="col-10">
+            <em class="fa fa-exclamation-triangle"></em>
+            <span class="section-header ms-2">{{dialogData.title.length > 0 ? dialogData.title:'Warning'}}</span>
+        </div>
+        <div class="col-2  text-end">
+            <button type="button" class="btn btn-light" (click)="close(true)">
+                <em class="fa fa-times"></em>
+            </button>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div class="m-3 value-label" [innerHTML]="dialogData.message"> </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="close(true)">{{dialogData.secondaryBtnTxt}}</button>
+        <button type="button" class="btn btn-primary" (click)="close(true)">{{dialogData.primaryBtnTxt}}</button>
+        <button type="button" class="btn btn-danger" (click)="close(true)">{{dialogData.dangerBtnTxt}}</button>
+    </div>
+</div>

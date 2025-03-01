@@ -1,0 +1,100 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Angular Lifecycle Hooks</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) Understanding Angular's lifecycle hooks allows you to manage component behavior throughout its lifecycle,
+            ensuring that you can properly initialize, check, and clean up components. Each hook serves a specific
+            purpose, whether initializing, detecting changes, or performing cleanup, and should be used accordingly
+            based on the needs of the component.</p>
+        <p>02) The Angular life cycle hooks are nothing but callback functions, which angular invokes when a specific
+            event occurs during the component’s life cycle.</p>
+        <p>03) These hooks allow you to control various stages of a component's lifecycle, providing flexibility and
+            efficiency in managing resources.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Types of Lifecycle Hooks</span></h3>
+        <b>01 ngOnChanges(): Responds to input changes.</b>
+        <b>02 ngOnInit(): Initialization logic.</b>
+        <b>03 ngDoCheck(): Custom change detection logic.</b>
+        <b>04 ngAfterContentInit(): External content projection initialization.</b>
+        <b>05 ngAfterContentChecked(): After content is checked.</b>
+        <b>06 ngAfterViewInit(): After component's view is initialized.</b>
+        <b>07 ngAfterViewChecked(): After view is checked.</b>
+        <b>08 ngOnDestroy(): Cleanup before the component is destroyed.</b>
+
+        <h5><span class="badge text-bg-secondary">Hooks for the Component</span></h5>
+        <ol>
+            <li>ngOnChanges()</li>
+            <li>ngOnInit()</li>
+            <li>ngDoCheck()</li>
+            <li>ngOnDestroy()</li>
+        </ol>
+
+        <h5><span class="badge text-bg-secondary">Hooks for the Component’s Children</span></h5>
+        <ol>
+            <li>ngAfterContentInit()</li>
+            <li>ngAfterContentChecked()</li>
+            <li>ngAfterViewInit()</li>
+            <li>ngAfterViewChecked()</li>
+        </ol>
+
+        <h5><span class="badge text-bg-secondary">constructor()</span></h5>
+        <p>constructor() - It is called when Angular creates a component or directive by calling new on the class.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">01. ngOnChanges()</span></h5>
+        <p>01)ngOnChanges() - It is called before ngOnInit() and whenever any data-bound input property changes (i.e.,
+            when &#64;Input() properties change).
+        </p>
+        <b>Use case: </b>
+        <p>To respond to changes in input properties from parent components.</p>
+
+        <h5><span class="badge text-bg-secondary">02. ngOnInit()</span></h5>
+        <p>02)ngOnInit() - It is called once, after the first ngOnChanges() but before the view is rendered. It is used
+            to
+            initialize the component.</p>
+        <b>Use case: </b>
+        <p>To perform any initialization logic, such as fetching data from a service.</p>
+
+        <h5><span class="badge text-bg-secondary">03. ngDoCheck()</span></h5>
+        <p>03)ngDoCheck() - Invoked when the change detector of the given component is invoked. It allows us to
+            implement our own change detection algorithm for the given component.(Component lavel change detection)
+        </p>
+        <b>Use case: </b>
+        <p>To manually check for changes that Angular might not detect automatically (e.g., mutable objects or manual
+            change detection).
+        </p>
+
+        <h5><span class="badge text-bg-secondary">04. ngAfterContentInit()</span></h5>
+        <p>04)ngAfterContentInit - Invoked after Angular performs any content projection into the component’s view
+            (i.e., after 'ng-content' has been projected).
+        </p>
+        <b>Use case: </b><p>To perform actions after the component has received its projected content.</p>
+
+        <h5><span class="badge text-bg-secondary">05. ngAfterContentChecked()</span></h5>
+        <p>05)ngAfterContentChecked - Invoked each time the content of the given component has been checked by
+            the change detection mechanism of Angular(i.e., after ngAfterContentInit() and every subsequent change detection run).</p>
+            <b>Use case: </b><p>To act after the projected content is checked.</p>
+
+        <h5><span class="badge text-bg-secondary">07. ngAfterViewInit()</span></h5>
+        <p>01)ngAfterViewInit - Invoked when the component’s view has been fully initialized.</p>
+        <b>Use case: </b><p>To perform actions after the view has been fully initialized, such as interacting with child components or querying the DOM.</p>
+
+        <h5><span class="badge text-bg-secondary">ngAfterViewChecked</span></h5>
+        <p>01)ngAfterViewChecked - Invoked each time the view of the given component has been checked by the
+            change detection mechanism of Angular(i.e., after ngAfterViewInit() and every subsequent change detection run)..</p>
+            <b>Use case: </b><p>To act after the view is checked.</p>
+
+        <h5><span class="badge text-bg-secondary">ngOnDestroy</span></h5>
+        <p>01)ngOnDestroy - This method will be invoked just before Angular destroys the component.
+            Use this hook to unsubscribe observables and detach event handlers to avoid memory leaks.</p>
+        <p>02)ngOnDestroy is the cleanup hook and is called just before Angular destroys a component instance.
+            It is crucial for releasing resources, such as subscriptions and listeners.
+        </p>
+        <b>Use case: </b><p>To act after the projected content is checked.</p>
+
+    </div>
+
+</div>

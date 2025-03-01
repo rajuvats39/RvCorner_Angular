@@ -1,0 +1,52 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">[ngClass] Directives</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) ngClass is a attribute directive.</p>
+        <p>02) The ngClass is a directive that used to dynamically add or remove CSS classes to an HTML element based on
+            certain conditions.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1</span></h5>
+        <div [ngClass]="'primary big'">Sample Text</div>
+
+        <h5><span class="badge text-bg-secondary">Eg.2</span></h5>
+        <b> Value comming from the component method</b>
+
+        <h5><span class="badge text-bg-secondary">Eg.3 (string)</span></h5>
+        <div [ngClass]="cssVar">Sample Text</div>
+
+        <h5><span class="badge text-bg-secondary">Eg.4 (array)</span></h5>
+        <div [ngClass]="cssArray">Sample Text</div>
+
+        <h5><span class="badge text-bg-secondary">Eg.5 (Object)</span></h5>
+        <div [ngClass]="cssClass">Sample Text</div>
+
+        <h5><span class="badge text-bg-secondary">Eg.6 (Conditionally applying class)</span></h5>
+        <ul>
+            <li *ngFor="let num of numbers">
+                <div [ngClass]="getClass(num)">{{ num }}</div>
+            </li>
+        </ul>
+
+        <h5><span class="badge text-bg-secondary">Eg.7 (Conditionally applying class)</span></h5>
+        <div class="task-list">
+            <div *ngFor="let task of tasks" class="task-card" 
+                 [ngClass]="{
+                   'text-success': task.status === 'completed',
+                   'text-primary': task.status === 'in-progress',
+                   'text-secondary': task.status === 'in-testing',
+                   'text-danger': task.status === 'rejected',
+                   'text-warning': task.status === 'in-review'
+                 }">
+              
+              <h3>{{ task.title }}</h3>
+              <p>Status: {{ task.status }}</p>
+            </div>
+          </div>
+          
+    </div>
+</div>

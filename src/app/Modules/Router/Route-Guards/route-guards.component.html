@@ -1,0 +1,76 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Angular Route Guards</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>Angular Route Guards help us prevent the user from accessing certain parts of the applications under specific
+            conditions. We can also use it to perform some actions before navigating to a route or leaving the route.
+            The use cases for route guards are authorization, authentication, data collection, etc. The Angular supports
+            several guards like CanActivate, CanDeactivate, Resolve, CanLoad, CanActivateChild, etc. This article will
+            explore Angular Guards in detail by building an example Angular Guards application.</p>
+
+        <b>Uses of Angular Route Guards</b>
+        <p>01) To Confirm the navigational operation</p>
+        <p>02) Asking whether to save before moving away from a view </p>
+        <p>03) Allow access to certain parts of the application to specific users. </p>
+        <p>04) Validating the route parameters before navigating to the route </p>
+        <p>05) Fetching some data before you display the component.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Types of Route Guards</span></h3>
+        <b>1. CanActivate</b>
+        <b>2. CanDeactivate</b>
+        <b>3. Resolve</b>
+        <b>4. CanLoad</b>
+        <b>5. CanActivateChild</b>
+        <b>6. CanMatch</b>
+
+        <h5><span class="badge text-bg-secondary">1. CanActivate</span></h5>
+        <p>The Angular CanActivate guard decides if a route can be activated ( or the component gets rendered). We use
+            this guard when we want to check on some condition, before activating the component or showing it to the
+            user. This allows us to cancel the navigation.
+        </p>
+
+        <b>Use cases</b>
+        <p>Checking if a user has logged in</p>
+        <p>Checking if a user has permission</p>
+        <p>One of the use cases of this guard is to check if the user has logged in to the system. If the user has not
+            logged in, then the guard can redirect him to the login page.</p>
+
+        <h5><span class="badge text-bg-secondary">CanDeactivate</span></h5>
+        <p>This Angular Guard decides if the user can leave the component (navigate away from the current route). This
+            route is useful when the user might have some pending changes, which is not yet saved. The CanDeactivate
+            route allows us to ask for user confirmation before leaving the component. You might ask the user if it’s OK
+            to discard pending changes rather than save them.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">Resolve</span></h5>
+        <p>This guard delays the activation of the route until some tasks are complete. You can use the guard to
+            pre-fetch the data from the backend API before activating the route.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">CanLoad</span></h5>
+        <p>The CanLoad Guard prevents the loading of the Lazy Loaded Module. We generally use this guard when we do not
+            want to unauthorized users to be able even to see the source code of the module.
+        </p>
+        <p>This guard works similarly to CanActivate guard with one difference. The CanActivate guard prevents a
+            particular route from being accessed. The CanLoad prevents the entire lazy-loaded module from being
+            downloaded, protecting all the routes within that module.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">CanActivateChild</span></h5>
+        <p>CanActivateChild guard determines whether a child route can be activated. This guard is very similar to
+            CanActivateGuard. We apply this guard to the parent route. The Angular invokes this guard whenever the user
+            tries to navigate to any of its child routes. This allows us to check some conditions and decide whether to
+            proceed with the navigation or cancel it..
+        </p>
+
+        <h5><span class="badge text-bg-secondary">How to Build Angular Route Guards</span></h5>
+        <b>1. Build the Guard as Service.</b>
+        <b>2. Implement the Guard Method in the Service</b>
+        <b>3. Register the Guard Service in the Root Module</b>
+        <b>4. Update the Routes to use the guards</b>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Using Angular Router (Passing Data via Route Parameters)</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>You can pass data between components using Angular Router. This is especially useful when navigating between
+            components and passing data through URLs or query parameters.</p>
+        <p>Route Parameters: Use when the data is part of the route path (e.g., /details/123).
+        <p>Query Parameters: Use when you have optional or additional data to pass (e.g., /details?id=123&name=Raju).
+        </p>
+        <p>State Object: Use when you don't want to expose the data in the URL.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1. Using Query Parameters:</span></h5>
+
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="navigateToParent('queryParams')">
+                Go To Parent with queryParams
+            </button>
+        </div>
+        <hr>
+        <h5><span class="badge text-bg-secondary">Eg.2. Using State Object:</span></h5>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="navigateToParent('state')">
+                Go To Parent with state
+            </button>
+        </div>
+        <hr>
+        <h5><span class="badge text-bg-secondary">Eg.3. Set Get Object:</span></h5>
+        <div class="col-auto">
+            <button class="btn btn-primary" (click)="navigateToParent('setget')">
+                Go To Parent with Set Get
+            </button>
+        </div>
+    </div>
+</div>

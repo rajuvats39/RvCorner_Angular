@@ -1,0 +1,48 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">*ngFor Directives</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) *ngFor Directives is ussed to repeat a portion of HTML template once per each item from an itterable list.</p>
+        <p>02) *ngFor is a structtral directives.That means it manipulates the DOM by adding or removing elements from the DOM .
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1</span></h5>
+        <div class='panel panel-primary'>
+            <div class='panel-body'>
+                <div class='table-responsive'>
+                    <table class='table'>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Designation</th>
+                                <th>Address</th>
+                                <th>Pic</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items;">
+                                <td>{{ item.id }}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{ item.gender }}</td>
+                                <td>{{ item.job }}</td>
+                                <td>{{item.address}}</td>
+                                <td><img [src]="item.pic" style="max-width: 50px; max-height: 50px;"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <h5><span class="badge text-bg-secondary">Eg.2</span></h5>
+        <div *ngFor="let item of [1,3,5,7,9]">
+            <p>Number is : {{item}}</p>
+        </div>
+    </div>
+</div>

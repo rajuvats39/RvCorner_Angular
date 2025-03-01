@@ -1,0 +1,29 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Event Binding</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) Event Binding allows us to bind webpage events to a components property or methods. Using event binding we can
+            pass data from view to component.
+        </p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-secondary">Eg1.</span></h3>
+        <img [src]='event' width="80%" height="150" />
+        <div class="col-3 mt-3">
+            <span><b>Event Changes</b></span> => {{searchValue}}
+            <input class="form-control" type="text" (input)="changeSearchValue($event)">
+        </div>
+        <div class="mt-3">
+            <span><b>Click on x to close</b></span>
+            <div class="alert alert-success col-8" style="text-align: center;font-size: 14px;" [hidden]="showNotifications">
+                Event is triggering.........................
+                <div class="close"><button class="button" (click)="closeNotification()">x</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

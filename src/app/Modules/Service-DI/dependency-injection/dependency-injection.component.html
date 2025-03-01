@@ -1,0 +1,57 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Dependency Injection</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <b>Dependency Injection (DI) is a technique in which a class receives its dependencies from external sources
+            rather than creating them itself.</b>
+
+        <p>Dependency Injection (DI) is a design pattern in which a class receives its dependencies from external
+            sources rather than creating them itself. Angular’s DI system allows you to inject services, other
+            components, or third-party libraries into your Angular classes (components, directives, services, etc.).
+        </p>
+
+        <b>Why Use Dependency Injection?:</b>
+        <p><b>Inversion of Control:</b> Instead of the class being responsible for creating its dependencies, the
+            dependencies are provided by an
+            external system (the Angular injector).</p>
+        <p><b>Modular and maintainable code:</b> Components and services become more modular because they rely on
+            external inputs.</p>
+        <p><b>Testability:</b> Dependencies can be mocked or replaced with test-specific implementations, making unit
+            testing easier.</p>
+        <p><b>Singletons:</b> DI ensures that a single instance of a service can be shared across the application or
+            between components, avoiding unnecessary creation of objects.</p>
+
+        <h5><span class="badge text-bg-secondary">Injector</span></h5>
+        <p>Injector holds the Providers and is responsible for resolving the dependencies and injecting the instance of
+            the Dependency to the Consumer.</p>
+        <p>
+            The Injector uses Injection Token to search for Dependency in the Providers. It then creates an instance of
+            the dependency and injects it into the consumer</p>
+        <p>
+            It is responsible forcreating and managing the instances of services and injecting them where required.
+        </p>
+        <b>Key Feature</b>
+        <P>
+            <b>Creating Services:</b> The Injector is responsible for creating instances of services when they are
+            requested, and it also manages their lifecycle, ensuring that the same instance is reused if it's marked as
+            a singleton.
+        </P>
+        <P>
+            <b>Providing Dependencies:</b> The Injector supplies the necessary dependencies (services, tokens) to
+            components, directives, or other services when required. For instance, if a component needs a service, the
+            injector provides that service.
+        </P>
+        <P>
+            <b>Creating Services:</b> The Injector is responsible for creating instances of services when they are
+            requested, and it also manages their lifecycle, ensuring that the same instance is reused if it's marked as
+            a singleton.
+        </P>
+
+        <h5><span class="badge text-bg-secondary">Provider</span></h5>
+        <p>The Providers Maintain the list of Dependencies along with their Injection Token. It uses the Injection Token
+            is to identify the Dependency. </p>
+
+    </div>
+</div>

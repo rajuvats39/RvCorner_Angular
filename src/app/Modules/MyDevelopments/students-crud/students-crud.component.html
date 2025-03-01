@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-10 mb-3">
+        <span class="section-header">STUDENT DETAILS</span>
+    </div>
+    <div class="col-2 text-end mb-3">
+        <button type="button" class="btn btn-primary" (click)="addStudent()">+Add Student</button>
+    </div>
+    <div class="col-12">
+        <div style="text-align: center;">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th style="text-align: center;">Name</th>
+                        <th style="text-align: center;">Age</th>
+                        <th style="text-align: center;">DOB</th>
+                        <th style="text-align: center;">Email</th>
+                        <th style="text-align: center;">Mobile</th>
+                        <th style="text-align: center;">Address</th>
+                        <th style="text-align: center;">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for( student of studentList; track student; let i=$index ){
+                    <tr>
+                        <td>{{student.id}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.age}}</td>
+                        <td>{{student.dob}}</td>
+                        <td>{{student.email}}</td>
+                        <td>{{student.mobile}}</td>
+                        <td>{{student.address}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-light" (click)="addEditStudent(student)"><i
+                                            class="fas fa-edit"></i></button>
+                                </div>
+                                <div class="col-auto">
+                                    <button type="button" class="btn btn-light" (click)="deleteStudent(student)"><i
+                                            class="fas fa-trash-alt"></i></button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

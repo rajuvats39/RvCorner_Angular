@@ -1,0 +1,70 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Services</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>A service in Angular is a class that contains reusable business logic or functionality that can be shared
+            across different components. It is primarily used to encapsulate common functionalities like fetching data
+            from an API, logging, authentication, utility functions, and much more.</p>
+
+        <p>Our components need to access the data. You can write data access code in each component, but that is very
+            inefficient and breaks the rule of single responsibility. The Component must focus on presenting data to the
+            user. The task of getting data from the back-end server must be delegated to some other class. We call such
+            a class a Service class. Because it provides the service of providing data to every component that needs it.
+        </p>
+
+        <p>01) Services allow us to create reusable code and use it for every component that needs it.
+        </p>
+        <p>02) The Services can be injected into components and other services using the dependency injection system.
+        </p>
+        <p>03) The dependencies are declared in the Module using the Provider’s metadata. </p>
+        <p>04) The Angular creates a tree of injectors & Providers that resembles the Component Tree. This is called the
+            hierarchical pattern.</p>
+        <p>05) Service is a piece of reusable code with a focused purpose. A code that you will use in many components
+            across your application</p>
+
+        <b>Services are typically designed to:</b>
+        <p><b>Promote code reusability:</b> Common logic can be abstracted into services so it can be reused in multiple
+            places.</p>
+        <p><b>Encapsulate logic:</b> Business logic is separated from components to keep components clean and focused on
+            view logic.</p>
+        <p><b>Facilitate testing:</b> Services can be unit tested independently of components.</p>
+        <p><b>Enable Dependency Injection:</b> Services are injected into components, other services, or directives to
+            provide their functionality.</p>
+
+        <p>Features that are independent of components such a logging services</p>
+        <p>Share logic or data across components</p>
+        <p> Encapsulate external interactions like data access</p>
+
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <div class="container">
+            <h3><span class="badge text-bg-secondary">Services Demo</span><button type="button" class="btn btn-warning ms-3"
+                    (click)="getProducts()">Get Products</button>
+            </h3>
+            <div class='table-responsive'>
+                <table class='table'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products;">
+                            <td>{{product.productId}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.type}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

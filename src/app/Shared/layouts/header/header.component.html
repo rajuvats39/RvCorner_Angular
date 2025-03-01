@@ -1,0 +1,29 @@
+<header class="header navbar navbar-expand navbar-dark bg-dark">
+  <div class="side-nav-button p-2 me-3 text-light" title="Toggle Expand/Collapse" (click)="sidebarToggle()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+  <span class="navbar-brand fw-bold">Rv Corner Angular Study</span>
+  <nav class="header-nav">
+    <a routerLink="/" routerLinkActive="active">Home</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/services" routerLinkActive="active">Services</a>
+    <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    <span type="button" title="Settings">
+      <em class="fa fa-cog" aria-hidden="true"></em>
+    </span>
+    <span type="button" title="Notifications">
+      <em class="fa fa-bell" aria-hidden="true"></em>
+    </span>
+    <span type="button" title="Settings">
+      <em class="fa fa-user" aria-hidden="true"></em>
+    </span>
+    <span type="button" title="User List" (click)="user()">
+      <em class="fa fa-users" aria-hidden="true"></em>
+    </span>
+    @if(isMenuRequire){
+    <span type="button" title="Log Out" (click)="logout()">
+      <em class="fa fa-sign-out" aria-hidden="true"></em>
+    </span>
+    }
+  </nav>
+</header>

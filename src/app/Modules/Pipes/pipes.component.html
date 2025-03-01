@@ -1,0 +1,70 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Pipes</span>
+    </div>
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>
+            01)Pipes are a way to transform data in the template directly. They allow you to format, modify, or
+            manipulate values such as strings, dates, numbers, and more without changing the component class itself.
+            Pipes can be built-in or custom.
+        <p>02) The Angular pipes are used to Transform the Data. For Example, the Date pipe formats the date according
+            to locale
+            rules. We can pass arguments to pipe and chain pipes. Angular also allows us to create the Custom Pipe.</p>
+        <p>03) Angular Pipes takes data as input and formats or transform the data to display in the template.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Types of Pipes</span></h3>
+        <p>01)Built-in Pipes</p>
+        <p>02)Custom Pipes</p>
+        <h4><span class="badge text-bg-success">Built-in Pipes</span></h4>
+        <p>
+            Angular provides several built-in pipes to handle common transformations, such as formatting dates, numbers,
+            and currencies, and transforming strings (e.g., uppercase, lowercase). Here are some of the most commonly
+            used built-in pipes:
+        </p>
+
+        <h5><span class="badge text-bg-secondary">Data Pipe</span></h5>
+        <p>medium : {{toDate | date:'medium'}} </p>
+        <p>short : {{toDate | date:'short'}} </p>
+        <p>fullDate : {{toDate | date:'fullDate'}} </p>
+        <p>longDate : {{toDate | date:'longDate'}} </p>
+        <p>mediumDate : {{toDate | date:'mediumDate'}} </p>
+        <p>shortDate : {{toDate | date:'shortDate'}} </p>
+        <p>mediumTime : {{toDate | date:'mediumTime'}} </p>
+        <p>dd-MM-y : {{toDate | date:'dd-MM-y'}} </p>
+        <p>dd-MM-yy HH:mm : {{toDate | date:'dd-MM-yy HH:mm'}} </p>
+
+        <h5><span class="badge text-bg-secondary">Uppercase & Lowercase Pipe</span></h5>
+        <p>Unformatted :{{msg}} </p>
+        <p>Uppercase :{{msg | uppercase}} </p>
+        <p>Lowercase :{{msg | lowercase}} </p>
+
+        <h5><span class="badge text-bg-secondary">Slice Pipe</span></h5>
+        <p>Complete String :{{msg}} </p>
+        <p>Example 1 :{{msg | slice:11:20}} </p>
+        <p>Example 2 :{{msg | slice:-9}} </p>
+
+        <h5><span class="badge text-bg-secondary">Decimal / Number Pipe</span></h5>
+        <p> Unformatted :{{num}}</p>
+        <p> Formatted :{{num | number}}</p>
+        <p> Formatted :{{num | number:'3.1-2'}}</p>
+        <p> Formatted :{{num | number:'7.1-5'}} </p>
+
+        <h5><span class="badge text-bg-secondary">Percente Pipe</span></h5>
+        <p>Unformatted :{{per}} </p>
+        <p>Example 1 :{{per | percent }} </p>
+        <p>Example 2 :{{per | percent:'1.2-2'}} </p>
+
+        <h5><span class="badge text-bg-secondary">Currency Pipe</span></h5>
+        <p>Unformatted :{{cur}} </p>
+        <p>Example 1 :{{cur | currency }} </p>
+        <p>Example 2 :{{cur | currency:'INR':true:'4.2-2'}} </p>
+
+        <h5><span class="badge text-bg-secondary">Json Pipe</span></h5>
+        <p>{{ {name: 'John', age: 30} | json }}</p>
+
+        <h5><span class="badge text-bg-secondary">Async Pipe</span></h5>
+        <p>{{ data$ | async }}</p>
+    </div>
+</div>

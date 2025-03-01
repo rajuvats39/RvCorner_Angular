@@ -1,0 +1,36 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Trackby Directives</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>01) Trackby is used to improve ngFor Performance.</p>
+        <p>02) Angular Trackby option improves the Performance of the ngFor if the collection has a large no of items
+            and keeps
+            changing. Learn why we need it and how to use it to improve the performance of the ngFor.</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Eg.1 </span></h5>
+        {{title}}
+
+        <ul>
+            <li *ngFor="let movie of movies; let i=index;trackBy: trackByFn;">
+                {{i}}. {{ movie.title }} - {{movie.director}} <button class="btn btn-outline-danger"
+                    (click)="remove(i)">remove</button>
+            </li>
+        </ul>
+
+        <div class="mt-3">
+            <button type="button" class="btn btn-outline-primary" (click)="refresh()">Refresh</button> <br>
+        </div>
+
+        <div class="input-group mt-3">
+            Title :&nbsp;<input type="text" [(ngModel)]="mTitle">&nbsp;
+            Director :&nbsp;<input type="text" [(ngModel)]="mDirector">
+            <div class="input-group-append">
+                <button type="button" class="btn btn-outline-success" (click)="addMovie()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>

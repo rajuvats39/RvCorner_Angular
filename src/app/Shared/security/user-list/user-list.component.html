@@ -1,0 +1,101 @@
+<div class="row">
+  <form id="updateForm" #updateForm="ngForm">
+    <div class="row border p-2 mx-0" [hidden]="true">
+      <div class="12">
+        <span class="section-header">Update User List</span>
+      </div>
+      <div class="col-3">
+        <span class="form-label">Name</span>
+        <input type="text" test-id="userList-txt-name" id="name" name="name" class="form-control"
+          [(ngModel)]="recordRecordData.setListData.name" required appModelValidationDisplay modelName="Name"
+          [disabled]="true" />
+      </div>
+      <div class="col-3">
+        <span class="form-label">Username</span>
+        <input type="text" test-id="userList-txt-userName" id="userName" name="userName" class="form-control"
+          [(ngModel)]="recordRecordData.setListData.id" required appModelValidationDisplay modelName="Username"
+          [disabled]="true" />
+      </div>
+      <div class="col-3">
+        <span class="form-label">Email</span>
+        <input type="text" test-id="userList-txt-email" id="email" name="email" class="form-control"
+          [(ngModel)]="recordRecordData.setListData.email" required appModelValidationDisplay modelName="Email"
+          [disabled]="true" />
+      </div>
+      <div class="col-3">
+        <span class="form-label">Role</span>
+        <input type="text" id="role" test-id="userList-txt-role" name="role" class="form-control"
+          [(ngModel)]="recordRecordData.setListData.role" required appModelValidationDisplay modelName="Role" />
+      </div>
+      <div class="col-3">
+        <span class="form-label">Status</span>
+        <input type="text" test-id="userList-txt-status" id="status" name="status" class="form-control"
+          [(ngModel)]="recordRecordData.setListData.status" required appModelValidationDisplay modelName="Status" />
+      </div>
+      <div class="col-3 mt-4">
+        <button type="button" test-id="userList-btn-reset" class="btn btn-outline-secondary me-2" title="Delete"
+          (click)="reset(updateForm)">
+          Reset
+        </button>
+        <button type="button" test-id="userList-btn-update" class="btn btn-primary" title="Delete"
+          (click)="updateUser(updateForm)" [templateForm]="updateForm" appTemplateFormValidationDisplay>
+          Update
+        </button>
+      </div>
+    </div>
+    <div class="row border mt-4 py-2 mx-0">
+      <div class="col-9 mt-2">
+        <span class="section-header">User List</span>
+      </div>
+      <div class="col-3">
+        <input type="text" id="searchUser" test-id="userList-txt-searchUser" name="searchUser" class="form-control"
+          placeholder="Search" />
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for( user of userList; track user ){
+          <tr>
+            <td>{{ user.name }}</td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role===''?'UnAssign':user.role }}</td>
+            <td>{{ user.isActive?'Active':'In-Active' }}</td>
+            <td>
+              <button type="button" test-id="userList-btn-edit" class="btn btn-outline-secondary me-2" title="Update"
+                (click)="editUser(user)">
+                <em class="fa-solid fa-edit"></em>
+              </button>
+              <button type="button" test-id="userList-btn-delete" class="btn btn-outline-danger" title="Delete"
+                (click)="deleteUser(user)">
+                <em class="fa-solid fa-trash"></em>
+              </button>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </form>
+  <div class="d-flex justify-content-between">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+      (pageChange)="refreshGrid()">
+    </ngb-pagination>
+    <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshGrid()">
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+    </select>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">RxJs Library</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h3><span class="badge text-bg-primary">Subject VS BehaviourSubject</span></h3>
+        <p>Both Subject and BehaviorSubject are Observables</p>
+
+        <h3><span class="badge text-bg-secondary">Subject</span></h3>
+        <p> A Subject is a special type of observable that allows values to be multicasted to many observables. In
+            simple terms, they are special containers that can hold values, and when a new value comes into a subject,
+            that value can be shared with numerous observers at once.</p>
+        <p> A Subject is a special type of Observable that allows values to be multicast to multiple observers. Unlike
+            regular observables, a Subject can both emit values (as an Observable) and be subscribed to (like an
+            Observer).</p>
+        <b>Key Characteristics:</b>
+        <p><b>No Initial Value:</b>Subject does not store any current value. When a new subscriber subscribes, it does
+            not receive any previously emitted value.</p>
+        <p><b>Multicasting: </b>It allows multiple observers to listen to the same subject.</p>
+        <p><b>Manually Emitting Values: </b>It allows you to emit values manually using next(), It means whenever we
+            requird the subscription on action needed.</p>
+        <p>It is used whenever we requird emiting and subscribing data with action subscription</p>
+
+        <h3><span class="badge text-bg-secondary">BehaviorSubject</span></h3>
+        <p>A BehaviorSubject is a type of Subject that requires an initial value and always provides the current value
+            to any new subscribers. It stores the last emitted value, so when a new observer subscribes, it immediately
+            receives the most recent value.</p>
+        <b>Key Characteristics:</b>
+        <p><b>No Initial Value:</b>A BehaviorSubject must be initialized with a default value.</p>
+        <p><b>Stores the Latest Value: </b>It stores the last emitted value and provides it to new subscribers even if
+            they subscribe after the value has been emitted.</p>
+        <p><b>Multicasting: </b>Similar to Subject, it allows multiple subscribers.</p>
+        <p>It is used whenever we requird continious emiting and subscribing data without any action subscription</p>
+
+        <table  class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Subject</th>
+                <th>BehaviorSubject</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Initial Value</td>
+                <td>No initial value</td>
+                <td>Requires an initial value</td>
+              </tr>
+              <tr>
+                <td>Previous Value</td>
+                <td>Does not store the last value</td>
+                <td>Always provides the last emitted value</td>
+              </tr>
+              <tr>
+                <td>Subscribers Behavior</td>
+                <td>New subscribers get values from that point onward</td>
+                <td>New subscribers immediately receive the last emitted value</td>
+              </tr>
+              <tr>
+                <td>Use Case</td>
+                <td>Used when you don’t need to store the last value</td>
+                <td>Used when you need to store and replay the last value</td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+
+        <b>When to Use:</b>
+        <p><b>Subject:</b>Use it when you do not need to remember the last emitted value. Useful for things like button
+            clicks, where you want to notify subscribers only about the actions that occur after they subscribe.</p>
+        <p><b>BehaviorSubject:</b>Use it when you need to remember the last emitted value and ensure that new
+            subscribers receive that value immediately. Ideal for things like form states or data models where you want
+            to retain and share the latest state across different parts of your application.</p>
+    </div>
+</div>

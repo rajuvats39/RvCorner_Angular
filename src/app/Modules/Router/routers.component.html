@@ -1,0 +1,72 @@
+<div class="row mb-5">
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <span class="fw-bold text-primary">Routing</span>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <p>The Routing powerfull navigation technique in angular</p>
+        <p>The Routing allows you to move from one part of the application to another part or one View to another View.
+        </p>
+
+        <b>Using Angular Router you can</b>
+        <p>01) Navigate to a specific view by typing a URL in the address bar</p>
+        <p>02) Navigate to a specific view by typing a URL in the address bar</p>
+        <p>03) Bind the clickable elements to the View and load the view when the user performs application tasks</p>
+        <p>04) Handles back and forward buttons of the browser</p>
+        <p>05) Allows you to load the view dynamically</p>
+        <p>06) Protect the routes from unauthorized users using Route Guards</p>
+    </div>
+
+    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+        <h5><span class="badge text-bg-secondary">Router</span></h5>
+        <p>An Angular Router is a service (Angular Router API) that enables navigation from one component to the next
+            component as users perform application tasks like clicking on menus links, and buttons, or clicking on the
+            back/forward button on the browser. We can access the router object and use its methods like navigate() or
+            navigateByUrl(), to navigate to a route.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">Route</span></h5>
+        <p>Route tells the Angular Router which view to display when a user clicks a link or pastes a URL into the
+            browser address bar. Every Route consists of a path and a component it is mapped to. The Router object
+            parses and builds the final URL using the Route.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">Routes</span></h5>
+        <p>Routes is an array of Route objects our application supports.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">RouterOutlet</span></h5>
+        <p>The outerOutlet is a directive (<'router-outlet'>) that serves as a placeholder, where the Router should
+                display the view.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">ActivatedRoute</span></h5>
+        <p>The ActivatedRoute is an object that represents the currently activated route associated with the loaded
+            Component.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">RouterState</span></h5>
+        <p>The current state of the router includes a tree of the currently activated routes together with convenience
+            methods for traversing the route tree.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">RouteLink Parameters array</span></h5>
+        <p>The Parameters or arguments to the Route. It is an array that you can bind to RouterLink directive or pass it
+            as an argument to the Router.navigate method.
+        </p>
+
+        <h5><span class="badge text-bg-secondary">Default Route</span></h5>
+        <b> path: '', redirectTo: 'home', pathMatch: 'full'</b>
+        <p>The path is empty, indicating the default route. The default route is redirected to the home path using the
+            RedirectTo argument.
+        </p>
+        <p>Note, that we have pathMatch argument set to ‘full’. The pathMatch tells the Router how to match the URL.</p>
+
+        <h5><span class="badge text-bg-secondary">Wild Card Route</span></h5>
+        <b>path: '**', component: ErrorComponent</b>
+        <p>Wild card route prevent the crush the apprication if any user try to navigate the any url and taht url is
+            wrong that time we can prevent the application to move it with Page Not Found,
+        </p>
+        <p>Since the wildcard route (**) matches every URL and should be placed last</p>
+    </div>
+</div>

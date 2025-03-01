@@ -1,0 +1,23 @@
+<div class="row mb-5">
+  <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <span class="fw-bold text-primary">Angular Syllabus Table of Contents</span>
+  </div>
+  <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Module</th>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let syllabus of syllabusAngular">
+          <td class="fw-bold">{{ syllabus.module }}</td>
+          <td class="fw-bold">{{ syllabus.title }}</td>
+          <td>{{ syllabus.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

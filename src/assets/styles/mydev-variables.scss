@@ -1,0 +1,54 @@
+//Variables
+
+$mydev-font-family: Arial;
+$mydev-blue: #000048;
+$mydev-dark-blue: #2F78C4;
+$mydev-light-blue: #e1efff;
+$mydev-green: #00B140;
+$mydev-white: #FFFFFF;
+$mydev-black: #292b2c;
+$mydev-grey: #53565A;
+$mydev-dark-grey: #888888;
+$mydev-medium-grey: #d9d9d9;
+$mydev-light-grey: #EFEFEF;
+$mydev-orange: #FF8F1C;
+$mydev-danger: #B81F2D;
+$mydev-muted: #6c757d;
+
+
+$mydev-primary: $mydev-dark-blue;
+$mydev-secondary: $mydev-blue;
+$mydev-success: $mydev-green;
+$mydev-warning: $mydev-orange;
+$mydev-info: $mydev-light-blue;
+$mydev-danger: $mydev-light-blue;
+$mydev-light: $mydev-light-grey;
+$mydev-dark: $mydev-danger;
+
+$mydev-label: $mydev-grey;
+$base-color: #000048;
+$mydev-highlight: $mydev-primary;
+$mydev-danger-focus: rgb(184, 31, 45, .25);
+$mydev-highlight-focus: rgb(47, 120, 196, .25);
+$mydev-input-border: $mydev-dark-grey;
+$mydev-body-bg: $mydev-light-grey;
+$mydev-body-color: $mydev-blue;
+$mydev-font-family: $mydev-font-family;
+$mydev-input-border: $mydev-dark-grey;
+$mydev-color-scrollbar-track:#caced0;
+$mydev-color-scrollbar-thumb:#5B6770;
+
+//Toaster color
+
+$mydev-toaster-success-border:#ABEC90;
+$mydev-toaster-success-text:#438229;
+$mydev-toaster-success-bg:#DDFFCF;
+$mydev-toaster-error-border:#e9b2b8;
+$mydev-toaster-error-text:#601017;
+$mydev-toaster-error-bg:#f8d7da;
+$mydev-toaster-info-border:#BAE8E3;
+$mydev-toaster-info-text:#1F7D73;
+$mydev-toaster-info-bg:#F2FBFA;
+$mydev-toaster-warning-border:#f0c9a4;
+$mydev-toaster-warning-text:#823918;
+$mydev-toaster-warning-bg:#FFE9D2;
