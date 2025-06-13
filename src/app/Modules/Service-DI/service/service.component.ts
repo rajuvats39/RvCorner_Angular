@@ -3,9 +3,10 @@ import { Product } from './product';
 import { ProductService } from './product.service';
 
 @Component({
-  selector: 'app-service',
-  templateUrl: './service.component.html',
-  styleUrl: './service.component.scss'
+    selector: 'app-service',
+    templateUrl: './service.component.html',
+    styleUrl: './service.component.scss',
+    standalone: false
 })
 export class ServiceComponent {
  public products: Product[];

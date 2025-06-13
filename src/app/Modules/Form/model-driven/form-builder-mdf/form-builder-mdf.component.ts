@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-builder-mdf',
-  templateUrl: './form-builder-mdf.component.html',
-  styleUrls: ['./form-builder-mdf.component.scss']
+    selector: 'app-form-builder-mdf',
+    templateUrl: './form-builder-mdf.component.html',
+    styleUrls: ['./form-builder-mdf.component.scss'],
+    standalone: false
 })
 export class FormBuilderMDFComponent {
   public contactForm: any;

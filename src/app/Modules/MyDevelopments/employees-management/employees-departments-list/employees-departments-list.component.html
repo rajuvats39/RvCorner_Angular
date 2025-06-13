@@ -1,0 +1,136 @@
+@if(isEmployee){
+<div class="row">
+    <div class="col-12 rounded border border-secondary p-2 shadow-sm mb-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <span class="fw-bold text-primary">Employee Details</span>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-primary" (click)="viewAddDepartment()">+ Add Department</button>
+                <button type="button" class="btn btn-primary" (click)="viewAddEmployee()">+ Add Employee</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 rounded border p-2 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover table-sm text-center nowrap-table">
+                <thead class="table-light">
+                    <tr>
+                        <th>EmpId</th>
+                        <th>DeptName</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>DateOfBirth</th>
+                        <th>JoiningDate</th>
+                        <th>Gender</th>
+                        <th>Skills</th>
+                        <th>Resume</th>
+                        <th>Profile</th>
+                        <th>Active</th>
+                        <th>Salary</th>
+                        <th>Exp</th>
+                        <th>Password</th>
+                        <th>Bio</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(employee of employeeData; track employee; let i = $index) {
+                    <tr>
+                        <td>{{ employee.employeeId }}</td>
+                        <td>{{ employee.departmentName }}</td>
+                        <td>{{ employee.firstName }}</td>
+                        <td>{{ employee.lastName }}</td>
+                        <td>{{ employee.email }}</td>
+                        <td>{{ employee.phoneNumber }}</td>
+                        <td>{{ employee.dateOfBirth | date:'dd-MM-yyyy' }}</td>
+                        <td>{{ employee.joiningDate | date:'dd-MM-yyyy' }}</td>
+                        <td>{{ employee.gender }}</td>
+                        <td>{{ employee.skills }}</td>
+                        <td><a [href]="employee.resumePath" target="_blank">View</a></td>
+                        <td><img [src]="employee.profileImage" class="img-thumbnail"
+                                style="width: 30px; height: 30px;" /></td>
+                        <td>{{ employee.isActive ? 'Yes' : 'No' }}</td>
+                        <td>{{ employee.salary | currency }}</td>
+                        <td>{{ employee.experienceYears }}</td>
+                        <td>{{ employee.passwordHash }}</td>
+                        <td [title]="employee.bio">{{ employee.bio | slice: 0: 5 }}<span
+                                *ngIf="employee.bio?.length > 5">...</span></td>
+                        <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-sm btn-outline-primary"
+                                    (click)="updateEmployee(employee)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger"
+                                    (click)="deleteEmployee(employee)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <app-pagination [totalItems]="employeeList.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50]"
+                [currentPage]="currentPage" (pageChanged)="onPageChange($event)"
+                (pageSizeChanged)="onPageSizeChange($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>
+}@else {
+<div class="row">
+    <div class="col-12 rounded border border-secondary p-2 shadow-sm mb-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <span class="fw-bold text-primary">Department Details</span>
+            <div class="d-flex gap-2">
+                <button type="button" class="btn btn-primary" (click)="viewAddDepartment()">+ Add Department</button>
+                <button type="button" class="btn btn-primary" (click)="viewAddEmployee()">+ Add Employee</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 rounded border p-2 shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover table-sm text-center nowrap-table">
+                <thead class="table-light">
+                    <tr>
+                        <th>EmpId</th>
+                        <th>Deptment Name</th>
+                        <th>Deptment Code</th>
+                        <th>Manager Name</th>
+                        <th>Extension No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(department of departmentData; track department; let i = $index) {
+                    <tr>
+                        <td>{{ department.departmentId }}</td>
+                        <td>{{ department.departmentName }}</td>
+                        <td>{{ department.departmentCode }}</td>
+                        <td>{{ department.managerName }}</td>
+                        <td>{{ department.extensionNumber  }}</td>
+                        <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <button type="button" class="btn btn-sm btn-outline-primary"
+                                    (click)="updateDepartment(department)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-outline-danger"
+                                    (click)="deleteDepartment(department)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <app-pagination [totalItems]="departmentList.length" [pageSize]="pageSize"
+                [pageSizeOptions]="[5, 10, 25, 50]" [currentPage]="currentPage" (pageChanged)="onPageChange($event)"
+                (pageSizeChanged)="onPageSizeChange($event)">
+            </app-pagination>
+        </div>
+    </div>
+</div>
+}

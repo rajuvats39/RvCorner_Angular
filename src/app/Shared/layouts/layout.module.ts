@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from '../../Modules/Dashboard/dashboard.component';
 import { PageLoadingSpinnerComponent } from '../page-loading-spinner/page-loading-spinner.component';
 import { SecurityModule } from '../security/security.module';
-import { AboutPageComponent } from './about-page/about-page.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LayoutComponent } from './layout.component';
@@ -17,9 +15,7 @@ import { ValidationModule } from '../validation/validation.module';
 @NgModule({
   declarations: [
     LayoutComponent,
-    AboutPageComponent,
     DashboardComponent,
-    ErrorPageComponent,
     HeaderComponent,
     SidebarComponent,
     FooterComponent,

@@ -1,9 +1,9 @@
-<div class="row mb-5">
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+<div class="row">
+    <div class="col-12 rounded border border-secondary p-2 shadow-sm">
         <span class="fw-bold text-primary">Parent to Child
             Communication (Using &#64;Input)</span>
     </div>
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <p>Parent-to-child communication is a common pattern where a parent component passes data to its child
             components. Angular provides the&#64;Input() decorator to facilitate this communication. This allows the
             child component to receive data dynamically, enabling components to work together efficiently.</p>
@@ -37,7 +37,7 @@
         </p>
     </div>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <h5><span class="badge text-bg-secondary">Eg. 1</span></h5>
         <app-child [receivedData]="parentMessage" [person]="personDetails" [items]="itemList" [name]="parentName"
             [data]="parentData" [receivedinputData]="inputData" (dataToParent)="receiveData($event)"></app-child>
@@ -52,12 +52,12 @@
 
     <hr>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <h5><span class="badge text-bg-secondary">Eg.1 Received data Using &#64;Output() and EventEmitter</span></h5>
         <p>Received Data from Child using &#64;Output:<b class="text-success">{{ dataFromChild }}</b></p>
     </div>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <h5><span class="badge text-bg-secondary">Eg. 2 Received data Using &#64;ViewChild</span></h5>
         <app-viewchild></app-viewchild>
         <p>Received Data from ViewChild:<b class="text-success">{{ messageFromChild }}</b></p>
@@ -67,7 +67,7 @@
         <b class="text-warning">{{ childMethodMessage }}</b>
     </div>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <h5><span class="badge text-bg-secondary">Eg.3 Received data Using Template Reference Variable</span></h5>
         <p>Sometimes, instead of directly using the component class, we might want to access an HTML element using
             &#64;ViewChild</p>
@@ -78,7 +78,7 @@
         </div>
     </div>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <app-sibling></app-sibling>
         <h5><span class="badge text-bg-secondary">Eg.3 Received data Using Service Rxjs/Subject behaviour</span></h5>
         <p>For more complex applications, where child and parent components might not have a direct relationship (e.g.,
@@ -87,7 +87,7 @@
         <p>Received Data from Service -- <b class="text-success">{{ message }}</b></p>
     </div>
 
-    <div class="col-12 card shadow bg-light rounded p-2 border-1 border-secondary">
+    <div class="col-12 rounded border mt-2 p-2 mt-2 shadow-sm">
         <app-sibling></app-sibling>
         <h5><span class="badge text-bg-secondary">Eg.3 Received data Router</span></h5>
         <p>.</p>

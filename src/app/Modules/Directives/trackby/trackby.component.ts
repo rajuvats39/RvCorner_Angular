@@ -5,9 +5,10 @@ class Movie {
 }
 
 @Component({
-  selector: 'app-trackby',
-  templateUrl: './trackby.component.html',
-  styleUrls: ['./trackby.component.scss']
+    selector: 'app-trackby',
+    templateUrl: './trackby.component.html',
+    styleUrls: ['./trackby.component.scss'],
+    standalone: false
 })
 export class TrackbyComponent {
   public title: string = "Top 5 Movies";

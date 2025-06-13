@@ -16,8 +16,9 @@ export function dropdownValidator(required: boolean | null | string): ValidatorF
 }
 
 @Directive({
-  selector: '[appDropdownValue]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: DropdownValidatorDirective, multi: true }]
+    selector: '[appDropdownValue]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: DropdownValidatorDirective, multi: true }],
+    standalone: false
 })
 
 export class DropdownValidatorDirective {

@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-router',
-  templateUrl: './router.component.html',
-  styleUrl: './router.component.scss'
+    selector: 'app-router',
+    templateUrl: './router.component.html',
+    styleUrl: './router.component.scss',
+    standalone: false
 })
 export class RouterComponent {
 

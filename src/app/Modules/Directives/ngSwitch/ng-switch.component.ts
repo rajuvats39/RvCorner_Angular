@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 class item { name: string; val: number; }
 
 @Component({
-  selector: 'app-ng-switch',
-  templateUrl: './ng-switch.component.html',
-  styleUrls: ['./ng-switch.component.scss']
+    selector: 'app-ng-switch',
+    templateUrl: './ng-switch.component.html',
+    styleUrls: ['./ng-switch.component.scss'],
+    standalone: false
 })
 export class NgSwitchComponent {
   public num: number = 0;

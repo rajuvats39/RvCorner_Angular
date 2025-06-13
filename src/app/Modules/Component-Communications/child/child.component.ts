@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrl: './child.component.scss'
+    selector: 'app-child',
+    templateUrl: './child.component.html',
+    styleUrl: './child.component.scss',
+    standalone: false
 })
 export class ChildComponent {
   @Input() receivedData: string; // Property to receive data from parent

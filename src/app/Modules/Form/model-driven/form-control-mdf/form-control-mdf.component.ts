@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-form-control-mdf',
-  templateUrl: './form-control-mdf.component.html',
-  styleUrls: ['./form-control-mdf.component.scss']
+    selector: 'app-form-control-mdf',
+    templateUrl: './form-control-mdf.component.html',
+    styleUrls: ['./form-control-mdf.component.scss'],
+    standalone: false
 })
 export class FormControlMDFComponent {
   contactForm = new FormGroup({

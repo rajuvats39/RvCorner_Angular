@@ -7,7 +7,8 @@ import { ValidationService } from './validation.service';
 
 
 @Directive({
-  selector: '[appModelValidationDisplay]'
+    selector: '[appModelValidationDisplay]',
+    standalone: false
 })
 export class ModelControlValidationDisplayDirective implements OnInit, OnDestroy {
 

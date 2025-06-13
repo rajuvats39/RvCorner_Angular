@@ -1,0 +1,196 @@
+@if(isEmployee) {
+<div class="row">
+  <div class="col-12 rounded border border-secondary p-2 shadow-sm mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="fw-bold text-primary">Employee Details</span>
+      <button type="button" class="btn btn-primary" (click)="viewEmployeeList()">Employee List</button>
+    </div>
+  </div>
+  <div class="col-12 rounded border p-3 shadow-sm">
+    <form #empForm="ngForm">
+      <div class="row g-3">
+        <!-- First Name -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-firstName">First Name</label>
+          <input id="firstName" name="firstName" [(ngModel)]="firstName" class="form-control" placeholder="First Name"
+            test-id="employeeManagements-txt-firstName" />
+        </div>
+        <!-- Last Name -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-lastName">Last Name</label>
+          <input id="lastName" name="lastName" [(ngModel)]="lastName" class="form-control" placeholder="Last Name"
+            test-id="employeeManagements-txt-lastName" />
+        </div>
+        <!-- Email -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-email">Email</label>
+          <input id="email" name="email" type="email" [(ngModel)]="email" class="form-control" placeholder="Email"
+            test-id="employeeManagements-txt-email" />
+        </div>
+        <!-- Phone Number -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-phoneNumber">Phone Number</label>
+          <input id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber" class="form-control"
+            placeholder="Phone Number" test-id="employeeManagements-txt-phoneNumber" />
+        </div>
+        <!-- DOB -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-dateOfBirth">Date of Birth</label>
+          <input id="dateOfBirth" name="dateOfBirth" type="date" [(ngModel)]="dateOfBirth" class="form-control"
+            test-id="employeeManagements-txt-dateOfBirth" />
+        </div>
+        <!-- DOJ -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-joiningDate">Joining Date</label>
+          <input id="joiningDate" name="joiningDate" type="date" [(ngModel)]="joiningDate" class="form-control"
+            test-id="employeeManagements-txt-joiningDate" />
+        </div>
+        <!-- Department -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-department">Department</label>
+          <select id="departmentId" name="departmentId" [(ngModel)]="departmentId" class="form-control"
+            test-id="employeeManagements-ddl-department">
+            <option value="">Select Department</option>
+            <option *ngFor="let dept of departmentList" [value]="dept.departmentId">{{ dept.departmentName }}</option>
+          </select>
+        </div>
+        <!-- Gender -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-gender">Gender</label><br />
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="genderM" name="gender" value="M" [(ngModel)]="gender"
+              test-id="employeeManagements-rdo-gender-male" />
+            <label class="form-check-label" for="genderM">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="genderF" name="gender" value="F" [(ngModel)]="gender"
+              test-id="employeeManagements-rdo-gender-female" />
+            <label class="form-check-label" for="genderF">Female</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="genderO" name="gender" value="O" [(ngModel)]="gender"
+              test-id="employeeManagements-rdo-gender-other" />
+            <label class="form-check-label" for="genderO">Other</label>
+          </div>
+        </div>
+        <!-- Skills -->
+        <div class="col-md-6">
+          <label class="form-label" test-id="employeeManagements-lbl-skills">Skills</label>
+          <div class="d-flex flex-wrap gap-3 border rounded p-2" test-id="employeeManagements-chk-skills">
+            <label *ngFor="let skill of skillsList" class="form-check-label">
+              <input type="checkbox" [value]="skill.skillName" (change)="onSkillChange(skill.skillName, $event)"
+                [checked]="skills.includes(skill.skillName)" />
+              {{ skill.skillName }}
+            </label>
+          </div>
+        </div>
+        <!-- Resume -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-resume">Resume</label>
+          <input type="file" class="form-control" (change)="onFileSelect($event)"
+            test-id="employeeManagements-file-resume" />
+        </div>
+        <!-- Profile Image -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-profileImage">Profile Image</label>
+          <input type="file" class="form-control" (change)="onFileSelect($event)"
+            test-id="employeeManagements-file-profileImage" />
+        </div>
+        <!-- Status -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-status">Status</label><br />
+          <input type="checkbox" name="isActive" [(ngModel)]="isActive" test-id="employeeManagements-chk-isActive" />
+          Is Active
+        </div>
+        <!-- Salary -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-salary">Salary</label>
+          <input type="number" name="salary" [(ngModel)]="salary" placeholder="Salary" class="form-control"
+            test-id="employeeManagements-txt-salary" />
+        </div>
+        <!-- Experience -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-experience">Experience (Years)</label>
+          <input type="number" name="experienceYears" [(ngModel)]="experienceYears" placeholder="Experience in years"
+            class="form-control" test-id="employeeManagements-txt-experienceYears" />
+        </div>
+        <!-- Password -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-password">Password</label>
+          <input type="password" name="password" [(ngModel)]="passwordHash" placeholder="Password" class="form-control"
+            test-id="employeeManagements-txt-password" />
+        </div>
+        <!-- Bio -->
+        <div class="col-12">
+          <label class="form-label" test-id="employeeManagements-lbl-bio">Bio</label>
+          <textarea name="bio" [(ngModel)]="bio" rows="3" placeholder="Bio / About yourself" class="form-control"
+            test-id="employeeManagements-txt-bio"></textarea>
+        </div>
+        <!-- Buttons -->
+        <div class="col-12 text-end mt-3">
+          <button type="submit" class="me-2" [ngClass]="isEditMode ? 'btn btn-warning' : 'btn btn-success'"
+            [disabled]="empForm.invalid" (click)="addUpdateEmployee(empForm)"
+            test-id="employeeManagements-btn-saveOrUpdate">
+            {{ isEditMode ? 'Update' : 'Save' }}
+          </button>
+          <button type="button" class="btn btn-warning me-2" test-id="employeeManagements-btn-cancel"
+            (click)="resetForm(empForm)">Reset</button>
+          <button type="button" class="btn btn-secondary" (click)="viewEmployeeList()"
+            test-id="employeeManagements-btn-cancel">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+}@else {
+<div class="row">
+  <div class="col-12 rounded border border-secondary p-2 shadow-sm mb-3">
+    <div class="d-flex justify-content-between align-items-center">
+      <span class="fw-bold text-primary">Department Details</span>
+      <button type="button" class="btn btn-primary" (click)="viewDepartmentList()">Department List</button>
+    </div>
+  </div>
+  <div class="col-12 rounded border p-3 shadow-sm">
+    <form #empForm="ngForm">
+      <div class="row g-3">
+        <!-- Department Name -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-firstName">Department Name</label>
+          <input id="firstName" name="firstName" [(ngModel)]="departmentName" class="form-control"
+            placeholder="Department Name" test-id="employeeManagements-txt-firstName" />
+        </div>
+        <!-- Manager Name -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-managerName">Manager Name</label>
+          <input id="managerName" name="managerName" [(ngModel)]="managerName" class="form-control"
+            placeholder="Manager Name" test-id="employeeManagements-txt-managerName" />
+        </div>
+        <!-- Department Code -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-lastName">Department Code</label>
+          <input id="departmentCode" name="departmentCode" [(ngModel)]="departmentCode" class="form-control"
+            placeholder="Department Code" test-id="employeeManagements-txt-departmentCode" />
+        </div>
+        <!-- Extension No -->
+        <div class="col-md-3">
+          <label class="form-label" test-id="employeeManagements-lbl-extensionNo">Extension No</label>
+          <input id="extensionNo" name="extensionNo" type="email" [(ngModel)]="extensionNumber" class="form-control"
+            placeholder="Extension No" test-id="employeeManagements-txt-extensionNo" />
+        </div>
+        <!-- Buttons -->
+        <div class="col-12 text-end mt-3">
+          <button type="submit" class="me-2" [ngClass]="isEditMode ? 'btn btn-warning' : 'btn btn-success'"
+            [disabled]="empForm.invalid" (click)="addUpdateDepartment(empForm)"
+            test-id="employeeManagements-btn-saveOrUpdate">
+            {{ isEditMode ? 'Update' : 'Save' }}
+          </button>
+          <button type="button" class="btn btn-warning me-2" test-id="employeeManagements-btn-cancel"
+            (click)="resetForm(empForm)">Reset</button>
+          <button type="button" class="btn btn-secondary" (click)="viewDepartmentList()"
+            test-id="employeeManagements-btn-cancel">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+}

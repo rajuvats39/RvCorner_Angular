@@ -1,12 +1,14 @@
+import { NgForm } from '@angular/forms';
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { StudentCrudService } from '../students-crud.service';
+import { StudentCrudService } from '../students-list.service';
 import { AppNotificationService } from '../../../../Shared/notifications/app-notification.service';
 
 @Component({
   selector: 'app-students-add-edit-delete',
   templateUrl: './students-add-edit-delete.component.html',
-  styleUrl: './students-add-edit-delete.component.scss'
+  styleUrl: './students-add-edit-delete.component.scss',
+  standalone: false
 })
 export class StudentsAddEditDeleteComponent {
 
@@ -18,6 +20,7 @@ export class StudentsAddEditDeleteComponent {
   public email: string;
   public mobile: string;
   public address: string;
+  public isEditMode: boolean = false;
 
   constructor(
     private readonly activeModal: NgbActiveModal,
@@ -27,7 +30,8 @@ export class StudentsAddEditDeleteComponent {
 
   ngOnInit(): void {
     if (this.dialogData) {
-      this.id = this.dialogData.id,
+      this.isEditMode = true,
+        this.id = this.dialogData.id,
         this.name = this.dialogData.name,
         this.age = this.dialogData.age,
         this.dob = this.dialogData.dob,
@@ -37,7 +41,13 @@ export class StudentsAddEditDeleteComponent {
     }
   }
 
-  public createStudent(): void {
+
+
+  public addUpdateStudent(form: NgForm): void {
+    if (form && !form.valid) {
+      this.appNotificationService.error('Please fill in all required fields.');
+      return;
+    }
     const request: any = {
       name: this.name,
       age: +this.age,
@@ -46,34 +56,26 @@ export class StudentsAddEditDeleteComponent {
       mobile: this.mobile,
       address: this.address
     };
-    this.studentCrudService.createStudent(request).subscribe((response) => {
-      if (response.isSuccess) {
-        this.appNotificationService.success(response.message);
-        this.activeModal.close({isClickOk:true});
-      } else {
-        this.appNotificationService.error(response.message);
-      }
-    })
-  }
-
-  public updateStudent(): void {
-    const request: any = {
-      id: this.dialogData.id,
-      name: this.dialogData.name,
-      age: this.dialogData.age,
-      dob: this.dialogData.dob,
-      email: this.dialogData.email,
-      mobile: this.dialogData.mobile,
-      address: this.dialogData.address
-    };
-    this.studentCrudService.createStudent(request).subscribe((response) => {
-      if (response.isSuccess) {
-        this.appNotificationService.success(response.message);
-        this.activeModal.close(true);
-      } else {
-        this.appNotificationService.error(response.message);
-      }
-    });
+    if (this.isEditMode) {
+      request.id = this.dialogData.id;
+      this.studentCrudService.updateStudent(request).subscribe((response) => {
+        if (response.isSuccess) {
+          this.appNotificationService.success(response.message);
+          this.activeModal.close({ isClickOk: true });
+        } else {
+          this.appNotificationService.error(response.message);
+        }
+      })
+    } else {
+      this.studentCrudService.addStudent(request).subscribe((response) => {
+        if (response.isSuccess) {
+          this.appNotificationService.success(response.message);
+          this.activeModal.close({ isClickOk: true });
+        } else {
+          this.appNotificationService.error(response.message);
+        }
+      });
+    }
   }
 
   public close(isConfirmed: boolean): void {

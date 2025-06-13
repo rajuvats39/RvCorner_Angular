@@ -14,7 +14,6 @@ import { StateManagementComponent } from './Modules/State-Management/state-manag
 import { AdvancedComponentsComponent } from './Modules/Advanced-Components/advanced-components.component';
 import { InterviewQAComponent } from './Modules/Interview-QA/interview-qa.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,8 +31,14 @@ import { InterviewQAComponent } from './Modules/Interview-QA/interview-qa.compon
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot({
-      timeOut: 3000,
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
       progressBar: true,
+      closeButton: true,
+      enableHtml: true,
+      easing: 'ease-in',
+      easeTime: 300
     }),
   ],
   providers: [provideHttpClient()],

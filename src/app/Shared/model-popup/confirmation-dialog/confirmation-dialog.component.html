@@ -14,8 +14,10 @@
         <div class="m-3 value-label" [innerHTML]="dialogData.message"> </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="close(true)">{{dialogData.secondaryBtnTxt}}</button>
+        @if(!dialogData.showOkOnly){
+        <button type="button" class="btn btn-primary-outline" (click)="close(false)"
+            [hidden]="dialogData.secondaryBtnTxt">{{dialogData.secondaryBtnTxt}}</button>
+        }
         <button type="button" class="btn btn-primary" (click)="close(true)">{{dialogData.primaryBtnTxt}}</button>
-        <button type="button" class="btn btn-danger" (click)="close(true)">{{dialogData.dangerBtnTxt}}</button>
     </div>
 </div>

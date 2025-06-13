@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { AppNotificationService } from '../../../Shared/notifications/app-notification.service';
 
 @Component({
-  selector: 'app-toaster',
-  templateUrl: './toaster.component.html',
-  styleUrls: ['./toaster.component.scss']
+    selector: 'app-toaster',
+    templateUrl: './toaster.component.html',
+    styleUrls: ['./toaster.component.scss'],
+    standalone: false
 })
 export class ToasterComponent {
   constructor(

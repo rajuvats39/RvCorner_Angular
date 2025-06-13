@@ -3,7 +3,8 @@ import { NgForm } from '@angular/forms';
 
 
 @Directive({
-  selector: '[appTemplateFormValidationDisplay]'
+    selector: '[appTemplateFormValidationDisplay]',
+    standalone: false
 })
 export class TemplateFormValidationDisplayDirective {
 

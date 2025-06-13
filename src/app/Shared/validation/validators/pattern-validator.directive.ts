@@ -20,8 +20,9 @@ export function patternValidator(nameRe: RegExp, type: string, message: string):
 }
 
 @Directive({
-  selector: '[appPattern]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: PatternValidatorDirective, multi: true }]
+    selector: '[appPattern]',
+    providers: [{ provide: NG_VALIDATORS, useExisting: PatternValidatorDirective, multi: true }],
+    standalone: false
 })
 
 export class PatternValidatorDirective implements Validator {

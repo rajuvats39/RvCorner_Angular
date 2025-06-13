@@ -4,6 +4,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
+  standalone: false
 })
 export class SidebarComponent implements OnChanges {
   public selectedItem: any = '';
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnChanges {
   @Input() sideNavStatus: boolean = false;
 
   ngOnChanges(changes: SimpleChanges): void {
-    
+
   }
 
   public menuList = [
@@ -181,11 +182,22 @@ export class SidebarComponent implements OnChanges {
       submenu: [
         { name: 'Toaster', link: 'myDevelopment/toastrDemo' },
         { name: 'Get Data', link: 'myDevelopment/getData' },
-        { name: 'Students CRUD', link: 'myDevelopment/students-crud'}
+        { name: 'Students Management', link: 'myDevelopment/studentsList' },
+        { name: 'Employee Managment', link: 'myDevelopment/employeeDepartmentList' }
       ],
     },
     {
-      number: '12',
+      number: '13',
+      name: 'Blog App',
+      icon: 'fa-solid fa-server',
+      path: 'blogApp',
+      isOpen: false,
+      submenu: [
+        { name: 'Toaster', link: 'blogApp/toastrDemo' }
+      ],
+    },
+    {
+      number: '14',
       name: 'Interview QA',
       icon: 'fa-solid fa-server',
       path: 'interviewQA',

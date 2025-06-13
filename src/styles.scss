@@ -38,10 +38,18 @@ $theme-color: (
 }
 
 * {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
+}
+
+main {
+  flex: 1;
+  overflow-y: auto;
+  height: calc(100vh - 6rem);
+  margin-bottom: 6rem;
 }
 
 body {
@@ -64,26 +72,6 @@ body {
   color: mydev-variables.$mydev-white !important;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  border-radius: .5rem;
-  background-color: #fff;
-  margin: 1.25rem 0 1.25rem 0;
-  box-shadow: 0 .25rem .5rem #e6edef;
-
-  .card-head {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid #edf1f7;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .card-body {
-    padding: 1rem 1.5rem;
-  }
-}
-
 .margin-r2 {
   margin-right: 2px;
 }
@@ -97,11 +85,11 @@ body {
 }
 
 /* Hide Scrollbars */
-::-webkit-scrollbar,
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-thumb {
-    display: none;
-}
+// ::-webkit-scrollbar,
+// ::-webkit-scrollbar-track,
+// ::-webkit-scrollbar-thumb {
+//     display: none;
+// }
 
 a {
   text-decoration: none !important;
@@ -179,11 +167,11 @@ ul {
   padding: 0;
 }
 
-.row {
-  --bs-gutter-x: 1.875rem !important;
-  margin-right: calc(-0.2*var(--bs-gutter-x)) !important;
-  margin-left: calc(-0.2*var(--bs-gutter-y)) !important;
-}
+// .row {
+//   --bs-gutter-x: 1.875rem !important;
+//   margin-right: calc(-0.2*var(--bs-gutter-x)) !important;
+//   margin-left: calc(-0.2*var(--bs-gutter-y)) !important;
+// }
 
 .form-label {
   font-weight: bold;
@@ -343,4 +331,20 @@ small,
   color: mydev-variables.$mydev-toaster-warning-border;
   border-color: mydev-variables.$mydev-toaster-warning-text;
   background-color: mydev-variables.$mydev-toaster-warning-bg;
+}
+
+.table.nowrap-table th,
+.table.nowrap-table td {
+  white-space: nowrap !important;
+}
+
+.toast-container .ngx-toastr {
+  min-width: 350px;     /* Increase width */
+  max-width: 600px;     /* Optional: limit max width */
+  padding: 8px 12px;    /* Decrease padding to reduce height */
+  font-size: 18px;      /* Optional: smaller font */
+  line-height: 1;     /* Tighter line spacing */
+  border-radius: 2rem;    /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 10px;      /* Adjust padding for better spacing */
 }

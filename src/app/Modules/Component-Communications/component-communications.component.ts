@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-component-communications',
-  templateUrl: './component-communications.component.html',
-  styleUrl: './component-communications.component.scss'
+    selector: 'app-component-communications',
+    templateUrl: './component-communications.component.html',
+    styleUrl: './component-communications.component.scss',
+    standalone: false
 })
 export class ComponentCommunicationsComponent {
 

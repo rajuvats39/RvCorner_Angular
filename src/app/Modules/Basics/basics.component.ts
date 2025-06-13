@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-basics',
-  templateUrl: './basics.component.html',
-  styleUrls: ['./basics.component.scss']
+    selector: 'app-basics',
+    templateUrl: './basics.component.html',
+    styleUrls: ['./basics.component.scss'],
+    standalone: false
 })
 export class BasicsComponent {
 

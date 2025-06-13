@@ -1,9 +1,10 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-parent',
-  templateUrl: './parent.component.html',
-  styleUrl: './parent.component.scss'
+    selector: 'app-parent',
+    templateUrl: './parent.component.html',
+    styleUrl: './parent.component.scss',
+    standalone: false
 })
 export class ParentComponent implements OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
 

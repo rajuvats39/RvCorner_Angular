@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, VERSION } from '@angular/core';
 
 @Component({
-  selector: 'app-lifecycle-hooks',
-  templateUrl: './lifecycle-hooks.component.html',
-  styleUrls: ['./lifecycle-hooks.component.scss'],
-  changeDetection:ChangeDetectionStrategy.Default,
+    selector: 'app-lifecycle-hooks',
+    templateUrl: './lifecycle-hooks.component.html',
+    styleUrls: ['./lifecycle-hooks.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Default,
+    standalone: false
 })
 export class LifecycleHooksComponent {
 

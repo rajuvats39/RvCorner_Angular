@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-interpolation-binding',
-  templateUrl: './interpolation-binding.component.html',
-  styleUrls: ['./interpolation-binding.component.scss']
+    selector: 'app-interpolation-binding',
+    templateUrl: './interpolation-binding.component.html',
+    styleUrls: ['./interpolation-binding.component.scss'],
+    standalone: false
 })
 export class InterpolationBindingComponent {
  public interpolation: string = 'assets/images/one-way-interpolation.png';

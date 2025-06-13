@@ -20,7 +20,7 @@ import { RoutersModule } from './Modules/Router/routers.module';
 import { HTTPRoutingModule } from './Modules/HTTP/http-routing.module';
 import { AdvancedComponentsModule } from './Modules/Advanced-Components/advanced-components.module';
 import { InterviewQAModule } from './Modules/Interview-QA/interview-qa.module';
-
+import { BlogAppModule } from './Modules/BlogApp/blog-app.module';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'advComponent', loadChildren: () => AdvancedComponentsModule },
   { path: 'myDevelopment', loadChildren: () => MydevelopmentsModule },
   { path: 'interviewQA', loadChildren: () => InterviewQAModule },
+  { path: 'blogApp', loadChildren: () => BlogAppModule },
   { path: '**', component: PageNotFoundComponent }
 ];
 

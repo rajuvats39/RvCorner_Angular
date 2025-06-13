@@ -4,9 +4,10 @@ import { DialogData } from '../models/dialog-data.model';
 
 
 @Component({
-  selector: 'app-confirmation-dialog',
-  templateUrl: './confirmation-dialog.component.html',
-  styleUrl: './confirmation-dialog.component.scss'
+    selector: 'app-confirmation-dialog',
+    templateUrl: './confirmation-dialog.component.html',
+    styleUrl: './confirmation-dialog.component.scss',
+    standalone: false
 })
 export class ConfirmationDialogComponent implements OnInit {
 
@@ -14,10 +15,10 @@ export class ConfirmationDialogComponent implements OnInit {
   public width = '850px';
   private defaultPrimaryBtnTxt = 'Ok';
   private defaultSecondaryBtnTxt = 'Cancel';
-  private defaultdangerBtnTxt = 'Delete';
+ // private defaultdangerBtnTxt = 'Delete';
 
   constructor(
-    private activeModal: NgbActiveModal,
+    private dialog: NgbActiveModal,
   ) { }
 
   ngOnInit(): void {
@@ -27,13 +28,10 @@ export class ConfirmationDialogComponent implements OnInit {
     if (!this.dialogData.secondaryBtnTxt) {
       this.dialogData.secondaryBtnTxt = this.defaultSecondaryBtnTxt;
     }
-    if (!this.dialogData.dangerBtnTxt) {
-      this.dialogData.dangerBtnTxt = this.defaultdangerBtnTxt;
-    }
   }
 
   public close(isConfirmed: boolean): void {
-    this.activeModal.close({
+    this.dialog.close({
       isClickOk: isConfirmed,
       isClickCancel: !isConfirmed,
       isClickCloseIcon: true
@@ -41,7 +39,7 @@ export class ConfirmationDialogComponent implements OnInit {
   }
 
   public closeIcomClick(): void {
-    this.activeModal.close({
+    this.dialog.close({
       isClickOk: false,
       isClickCancel: false,
       isClickCloseIcon: true

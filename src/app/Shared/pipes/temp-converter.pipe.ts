@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'tempConverter'
+    name: 'tempConverter',
+    standalone: false
 })
 export class TempConverterPipe implements PipeTransform {
 

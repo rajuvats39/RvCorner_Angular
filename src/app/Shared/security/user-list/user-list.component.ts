@@ -8,9 +8,10 @@ import { DialogDataResponse } from '../../model-popup/models/dialog-data-respons
 import { AppNotificationService } from '../../notifications/app-notification.service';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.scss'
+    selector: 'app-user-list',
+    templateUrl: './user-list.component.html',
+    styleUrl: './user-list.component.scss',
+    standalone: false
 })
 export class UserListComponent implements OnInit {
 

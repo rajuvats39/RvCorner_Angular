@@ -4,9 +4,10 @@ import { AuthenticationService } from '../../authentication.service';
 import { AppNotificationService } from '../../../notifications/app-notification.service';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrl: './edit-user.component.scss'
+    selector: 'app-edit-user',
+    templateUrl: './edit-user.component.html',
+    styleUrl: './edit-user.component.scss',
+    standalone: false
 })
 export class EditUserComponent {
   @Input() private dialogData: any;

@@ -1,9 +1,10 @@
 import { Component, Injectable } from '@angular/core';
 
 @Component({
-  selector: 'app-route-guards',
-  templateUrl: './route-guards.component.html',
-  styleUrl: './route-guards.component.scss'
+    selector: 'app-route-guards',
+    templateUrl: './route-guards.component.html',
+    styleUrl: './route-guards.component.scss',
+    standalone: false
 })
 export class RouteGuardsComponent {
   //1. Build the Guard as a Service

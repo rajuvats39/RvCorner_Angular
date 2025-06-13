@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-pipes',
-  templateUrl: './pipes.component.html',
-  styleUrls: ['./pipes.component.scss']
+    selector: 'app-pipes',
+    templateUrl: './pipes.component.html',
+    styleUrls: ['./pipes.component.scss'],
+    standalone: false
 })
 export class PipesComponent {
   toDate: Date = new Date();

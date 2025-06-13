@@ -5,9 +5,10 @@ import { ComponentCommunicationsService } from '../component-communications.serv
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-parent',
-  templateUrl: './parent.component.html',
-  styleUrl: './parent.component.scss'
+    selector: 'app-parent',
+    templateUrl: './parent.component.html',
+    styleUrl: './parent.component.scss',
+    standalone: false
 })
 export class ParentComponent {
   public parentMessage = 'Hello from Parent!'; // Data to be passed to the child

@@ -5,9 +5,10 @@ import { AuthenticationService } from '../authentication.service';
 import { AppNotificationService } from '../../notifications/app-notification.service';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrl: './user-login.component.scss'
+    selector: 'app-user-login',
+    templateUrl: './user-login.component.html',
+    styleUrl: './user-login.component.scss',
+    standalone: false
 })
 export class UserLoginComponent {
 

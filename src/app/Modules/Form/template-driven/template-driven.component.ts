@@ -10,9 +10,10 @@ import { DialogData } from '../../../Shared/model-popup/models/dialog-data.model
 
 
 @Component({
-  selector: 'app-template-driven',
-  templateUrl: './template-driven.component.html',
-  styleUrls: ['./template-driven.component.scss']
+    selector: 'app-template-driven',
+    templateUrl: './template-driven.component.html',
+    styleUrls: ['./template-driven.component.scss'],
+    standalone: false
 })
 export class TemplateDrivenComponent {
 

@@ -52,7 +52,7 @@ export class AppHttpClientService {
   }
 
   put<TRequest, TResponse>(url: string, request?: TRequest): Observable<TResponse> {
-    return this.httpClient.post<TResponse>(url, request) as any;
+    return this.httpClient.put<TResponse>(url, request); 
   }
   
   delete<TRequest, TResponse>(url: string, request?: TRequest, headers?: HttpHeaders): Observable<TResponse> {

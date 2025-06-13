@@ -2,14 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthenticationGuard } from '../security/authentication.guard';
-import { LayoutComponent } from './layout.component';
-
-const routes: Routes = [
-  {
-    path: '', component: LayoutComponent, canActivate: [AuthenticationGuard]
-  },
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,22 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { AddEditDataComponent } from './add-edit-data/add-edit-data.component';
 import { MydevelopmentService } from '../mydevelopment.service';
-import { ModelPopupService } from '../../../Shared/model-popup/model-popup.service';
-import { DialogDataResponse } from '../../../Shared/model-popup/models/dialog-data-response.model';
+import { AppNotificationService } from '../../../Shared/notifications/app-notification.service';
 
 @Component({
   selector: 'app-getdata',
   templateUrl: './getdata.component.html',
-  styleUrls: ['./getdata.component.scss']
+  styleUrls: ['./getdata.component.scss'],
+  standalone: false
 })
 export class GetDataComponent implements OnInit {
 
   public userData: any = [];
+  public userList: any = [];
+  public currentPage: number = 1;
+  public pageSize: number = 5;
   public searchDetails: string;
 
   constructor(
-    private mydevelopmentService: MydevelopmentService,
-    private modelPopupService: ModelPopupService
+    private readonly mydevelopmentService: MydevelopmentService,
+    private readonly appNotificationService: AppNotificationService
   ) { }
 
   ngOnInit(): void {
@@ -25,28 +27,31 @@ export class GetDataComponent implements OnInit {
 
   public getUserData(): void {
     this.mydevelopmentService.getUserData().subscribe((data: any) => {
-      this.userData = data;
+      if (data) {
+        this.userData = data;
+        this.userList = data;
+        this.updatePaginatedData();
+      } else {
+        this.appNotificationService.error("No data found");
+      }
     })
   }
 
-  public addEditData(dataItem): void {
-    const dialogData = {
-      id: dataItem.id,
-      name: dataItem.name,
-      email: dataItem.email,
-      phone: dataItem.phone,
-      username: dataItem.username,
-      website: dataItem.website,
-      companyName: dataItem.company.name,
-      address: dataItem.address.street,
-      city: dataItem.address.city,
-      zipCode: dataItem.address.zipcode
-    };
-    this.modelPopupService.open(AddEditDataComponent, dialogData).result.then((result: DialogDataResponse) => {
-      if (result.isClickOk) {
-        this.getUserData();
-      }
-    });
+  public onPageChange(page: number): void {
+    this.currentPage = page;
+    this.updatePaginatedData();
+  }
+
+  public onPageSizeChange(size: number): void {
+    this.pageSize = size;
+    this.currentPage = 1;
+    this.updatePaginatedData();
+  }
+
+  public updatePaginatedData(): void {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.userData = this.userList.slice(startIndex, endIndex);
   }
 
 }

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-model-driven',
-  templateUrl: './model-driven.component.html',
-  styleUrls: ['./model-driven.component.scss']
+    selector: 'app-model-driven',
+    templateUrl: './model-driven.component.html',
+    styleUrls: ['./model-driven.component.scss'],
+    standalone: false
 })
 export class ModelDrivenComponent {
 

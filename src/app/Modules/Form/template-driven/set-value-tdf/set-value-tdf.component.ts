@@ -2,9 +2,10 @@ import { Component, ViewChild } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-set-value-tdf',
-  templateUrl: './set-value-tdf.component.html',
-  styleUrls: ['./set-value-tdf.component.scss']
+    selector: 'app-set-value-tdf',
+    templateUrl: './set-value-tdf.component.html',
+    styleUrls: ['./set-value-tdf.component.scss'],
+    standalone: false
 })
 export class SetValueTDFComponent {
   @ViewChild('contactForm') contactForm!: NgForm;

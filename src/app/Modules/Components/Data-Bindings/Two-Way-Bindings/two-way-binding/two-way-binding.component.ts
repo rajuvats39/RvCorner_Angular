@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-two-way-binding',
-  templateUrl: './two-way-binding.component.html',
-  styleUrls: ['./two-way-binding.component.scss']
+    selector: 'app-two-way-binding',
+    templateUrl: './two-way-binding.component.html',
+    styleUrls: ['./two-way-binding.component.scss'],
+    standalone: false
 })
 export class TwoWayBindingComponent {
   value: string = 'Singh is King';

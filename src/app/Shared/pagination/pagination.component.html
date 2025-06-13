@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between align-items-center flex-wrap mt-3">
+    <!-- Left: Pagination -->
+    <div class="d-flex align-items-center">
+      <nav *ngIf="pages.length > 1">
+        <ul class="pagination mb-0">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+          </li>
+  
+          <li
+            class="page-item"
+            *ngFor="let page of pages"
+            [class.active]="currentPage === page"
+          >
+            <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+          </li>
+  
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="onPageChange(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  
+    <!-- Right: Record range + Page size -->
+    <div class="d-flex align-items-center gap-3 small text-muted mt-2 mt-md-0">
+      <span>{{ getRecordRange() }}</span>
+      <div class="d-flex align-items-center">
+        <label class="me-1 mb-0">Per page:</label>
+        <select
+          class="form-select form-select-sm w-auto"
+          [ngModel]="pageSize"
+          (ngModelChange)="onPageSizeChange($event)"
+        >
+          <option *ngFor="let size of pageSizeOptions" [value]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
