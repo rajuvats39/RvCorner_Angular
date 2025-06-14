@@ -20,7 +20,6 @@ export class EmployeesDepartmentsListComponent implements OnInit {
   public currentPage: number = 1;
   public pageSize: number = 5;
   public employeeData: any[] = [];
-
   public departmentList: any[] = [];
   public departmentData: any[] = [];
   public isEmployee: boolean;
