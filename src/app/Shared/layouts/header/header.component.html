@@ -1,29 +1,47 @@
-<header class="header navbar navbar-expand navbar-dark bg-dark">
-  <div class="side-nav-button p-2 me-3 text-light" title="Toggle Expand/Collapse" (click)="sidebarToggle()">
-    <i class="fa-solid fa-bars"></i>
+<header class="header d-flex align-items-center justify-content-between px-3 py-2">
+  <!-- Sidebar Toggle -->
+  <div class="side-nav-button p-2 me-3" [class.active]="isSidebarToggleActive" title="Toggle Expand/Collapse"
+    tabindex="0" (click)="sidebarToggle()">
+    <i class="fa-solid fa-bars fa-xl"></i>
   </div>
-  <span class="navbar-brand fw-bold">Rv Corner Angular Study</span>
-  <nav class="header-nav">
-    <a routerLink="/" routerLinkActive="active">Home</a>
-    <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/services" routerLinkActive="active">Services</a>
-    <a routerLink="/contact" routerLinkActive="active">Contact</a>
-    <span type="button" title="Settings">
-      <em class="fa fa-cog" aria-hidden="true"></em>
-    </span>
-    <span type="button" title="Notifications">
-      <em class="fa fa-bell" aria-hidden="true"></em>
-    </span>
-    <span type="button" title="Settings">
-      <em class="fa fa-user" aria-hidden="true"></em>
-    </span>
-    <span type="button" title="User List" (click)="user()">
-      <em class="fa fa-users" aria-hidden="true"></em>
-    </span>
-    @if(isMenuRequire){
-    <span type="button" title="Log Out" (click)="logout()">
-      <em class="fa fa-sign-out" aria-hidden="true"></em>
-    </span>
+
+  <!-- Title -->
+  <span class="text-center fw-bold flex-grow-1">Rv Corner Angular Study</span>
+
+  <!-- Navigation -->
+  <nav class="header-nav d-flex align-items-center">
+
+    <!-- User Info -->
+    @if(fullName){
+    <span class="fw-bold text-warning me-2">[ {{ fullName }}, {{ role }} ]</span>
     }
+
+    <!-- Divider -->
+    <div class="vertical-line mx-3" role="separator" aria-hidden="true"></div>
+
+    <!-- Settings -->
+    <span class="header-icon me-3" title="Settings" tabindex="0" role="button">
+      <em class="fa fa-cog"></em>
+    </span>
+
+    <!-- Notifications -->
+    <span class="header-icon me-3" title="Notifications" tabindex="0" role="button">
+      <em class="fa fa-bell"></em>
+    </span>
+
+    <!-- User Info -->
+    <span class="header-icon me-3" title="User Information" tabindex="0" role="button">
+      <em class="fa fa-user"></em>
+    </span>
+
+    <!-- User List -->
+    <span class="header-icon me-3" title="User List" tabindex="0" role="button" (click)="userList()">
+      <em class="fa fa-users"></em>
+    </span>
+
+    <!-- Log Out -->
+    <span class="header-icon" title="Log Out" tabindex="0" role="button" (click)="logout()">
+      <em class="fa fa-sign-out"></em>
+    </span>
   </nav>
 </header>

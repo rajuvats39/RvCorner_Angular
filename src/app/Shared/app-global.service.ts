@@ -6,8 +6,12 @@ import { Injectable } from '@angular/core';
 export class AppGlobalService {
 
   authenticationApiUrls = {
-    user: 'http://localhost:3000/user',
-    role: 'http://localhost:3000/role',
+    authenticate: 'api/Users/Authenticate',
+    register: 'api/Users/Register',
+    getAllUsers: 'api/Users/GetAllUsers',
+    deleteUser: 'api/Users/DeleteUser',
+    updateUser: 'api/Users/UpdateUser',
+    refreshToken: 'api/Users/RefreshToken'
   }
 
 }

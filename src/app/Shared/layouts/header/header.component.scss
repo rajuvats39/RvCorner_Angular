@@ -1,50 +1,14 @@
-  nav {
-    height: 100%;
-  }
-
   .side-nav-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  &:hover {
+    border-color: white;
   }
+  &.active {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+  }
+}
 
-  .side-nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 30%;
-  }
-
-  /* Header styling */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #333;
-    color: white;
-    padding: 0.5rem 1rem;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 3rem;
-  }
-
-  .header-title {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-
-  .header-nav {
-    display: flex;
-    gap: 15px;
-  }
-
-  .header-nav a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .header-nav a.active {
-    color: #ff6347;
-  }

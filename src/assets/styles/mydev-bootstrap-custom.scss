@@ -1,4 +1,4 @@
-@use 'mydev-variables';
+@import 'mydev-variables';
 
 $body-bg: mydev-variables.$mydev-body-bg;
 $body-color: mydev-variables.$mydev-body-color;
@@ -98,12 +98,6 @@ $theme-color: (
     color: mydev-variables.$base-color;
     border-color: mydev-variables.$mydev-danger-focus;
     box-shadow: 0 0 0 3px mydev-variables.$mydev-highlight-focus;
-}
-
-
-.btn-close {
-    @extend .fa-times;
-    background: none !important;
 }
 
 .alert {

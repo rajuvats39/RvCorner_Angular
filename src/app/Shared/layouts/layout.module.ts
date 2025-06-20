@@ -3,37 +3,23 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from '../../Modules/Dashboard/dashboard.component';
-import { PageLoadingSpinnerComponent } from '../page-loading-spinner/page-loading-spinner.component';
-import { SecurityModule } from '../security/security.module';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { LayoutComponent } from './layout.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
 import { ValidationModule } from '../validation/validation.module';
+import { AuthLayoutComponent } from './auth-layout/auth-layout.component';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
-    LayoutComponent,
-    DashboardComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent,
-    PageLoadingSpinnerComponent
+    AuthLayoutComponent,
+    MainLayoutComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     FlexLayoutModule,
-    SecurityModule,
     FormsModule,
-    ValidationModule
-  ],
-  exports: [
-    LayoutComponent,
-    HeaderComponent,
-    SidebarComponent,
-    FooterComponent
+    ValidationModule,
+    NgModule
   ]
 })
 export class LayoutModule { }

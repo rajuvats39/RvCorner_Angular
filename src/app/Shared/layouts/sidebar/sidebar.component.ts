@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,14 +7,12 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrls: ['./sidebar.component.scss'],
   standalone: false
 })
-export class SidebarComponent implements OnChanges {
+export class SidebarComponent {
+  @Input() sideNavStatus: boolean;
   public selectedItem: any = '';
   public selectedSubItem: any = '';
-  @Input() sideNavStatus: boolean = false;
 
-  ngOnChanges(changes: SimpleChanges): void {
-
-  }
+  constructor(private router: Router) { }
 
   public menuList = [
     {
@@ -207,13 +206,31 @@ export class SidebarComponent implements OnChanges {
     },
   ];
 
-  public selectItem(menuTitle: any): void {
-    this.selectedItem = menuTitle;
-    this.selectedSubItem = '';
+  public toggleMenu(item: any): void {
+    if (item.submenu?.length) {
+      this.menuList.forEach(m => {
+        if (m !== item) m.isOpen = false;
+      });
+      item.isOpen = !item.isOpen;
+    } else if (item.path) {
+      this.router.navigate([item.path]);
+    }
+    this.selectedItem = item;
+    this.selectedSubItem = null;
+    this.router.navigate([item.path]);
   }
 
-  public selectSubItem(submenuTitle: any): void {
-    this.selectedItem = submenuTitle;
-    this.selectedSubItem = submenuTitle;
+  public selectSubItem(parent: any, submenu: any): void {
+    this.selectedItem = parent;
+    this.selectedSubItem = submenu;
+    if (submenu?.link) {
+      this.router.navigate([submenu.link]);
+    }
   }
+
+  public trackByFn(index: number, item: any) {
+    return item.number;
+  }
+
 }
+

@@ -1,12 +1,11 @@
-/* Menu Style */
-.border-white {
-  border: 1px solid white;
-}
-
 .side-nav-content {
-  color: white;
+  background-color: #ffffff;
+  color: #000048;
   width: 230px;
-  margin: 10px;
+  margin: 0;
+  box-shadow: 5px 0 5px -2px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  overflow-y: auto;
 }
 
 .nav-list,
@@ -16,68 +15,71 @@
   margin: 0;
 }
 
-.nav-list-item,
-.submenu-item {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  color: white;
-  cursor: pointer;
-  position: relative;
-}
-
-.submenu-item {
-  padding: 10px;
+.nav-list-item {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  color: #000048;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
 }
 
 .nav-list-item:hover,
-.nav-list-item:active,
-.submenu-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
+.nav-list-item.active {
+  background-color: #000048;
+  color: #ffffff;
 }
 
-.nav-list-item.active,
-.submenu-item.active {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 10px;
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 15px;
+  cursor: pointer;
 }
 
-.nav-list-item em {
-  font-size: 20px;
-  width: 25px;
-  height: 25px;
-  margin: 0 15px 0 10px;
-  text-align: center;
-  line-height: 25px;
+.menu-header em {
+  font-size: 18px;
+  margin-right: 10px;
 }
 
-.nav-list-item span {
-  width: 170px;
+.menu-title {
+  flex-grow: 1;
   text-transform: capitalize;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.submenu {
+  background-color: #ffffff;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding-left: 30px;
+  padding-right: 15px;
+  color: #000048;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submenu-item:hover,
+.submenu-item.active {
+  background-color: #000048;
+  color: #ffffff;
 }
 
 a {
   text-decoration: none;
-  color: white;
-}
-
-/* Submenu Styles */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 50px;
-  width: 230px;
-  background-color: #333;
-  border-radius: 10px;
-  z-index: 1000;
-}
-
-.nav-list-item:hover .submenu {
+  color: inherit;
   display: block;
+  width: 100%;
 }
-
-// .show {
-//     display: block;
-// }

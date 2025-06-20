@@ -1,16 +1,30 @@
 <div class="side-nav-content">
   <ul class="nav-list" [ngClass]="{ 'nav-list-open': sideNavStatus }">
-    @for(item of menuList; track item){
-    <li class="nav-list-item" [ngClass]="{ active: selectedItem === item }" (click)="selectItem(item)">
-      <em class="{{ item.icon }}"></em>
-      <span><a [routerLink]="[item.path]">{{ item.name }}</a></span>
-      <ul *ngIf="item.submenu && item.submenu.length > 0" class="submenu" [ngClass]="{ show: item.isOpen }">
-        <li *ngFor="let subItem of item.submenu" class="submenu-item" [ngClass]="{ active: selectedSubItem === item }"
-          (click)="selectSubItem(item)">
-          <a [routerLink]="subItem.link">{{ subItem.name }}</a>
+    <li *ngFor="let item of menuList; trackBy: trackByFn" class="nav-list-item"
+      [ngClass]="{ active: selectedItem === item }" (click)="toggleMenu(item)" tabindex="0" role="button"
+      (keydown.enter)="toggleMenu(item)" (keydown.space)="toggleMenu(item)">
+      <div class="menu-header">
+        <em class="{{ item.icon }}"></em>
+        <ng-container *ngIf="sideNavStatus !== false">
+          <span class="menu-title">{{ item.name }}</span>
+          <i class="fa" *ngIf="item.submenu?.length" [ngClass]="{
+              'fa-chevron-down': item.isOpen,
+              'fa-chevron-right': !item.isOpen
+            }"></i>
+        </ng-container>
+      </div>
+      <!-- Submenu -->
+      <ul *ngIf="item.submenu?.length && item.isOpen" class="submenu">
+        <li *ngFor="let subItem of item.submenu" class="submenu-item"
+          [ngClass]="{ active: selectedSubItem === subItem }"
+          (click)="selectSubItem(item, subItem); $event.stopPropagation()" tabindex="0" role="link"
+          (keydown.enter)="selectSubItem(item, subItem); $event.stopPropagation()"
+          (keydown.space)="selectSubItem(item, subItem); $event.stopPropagation()">
+          <a *ngIf="sideNavStatus !== false" [routerLink]="subItem.link">
+            {{ subItem.name }}
+          </a>
         </li>
       </ul>
     </li>
-    }
   </ul>
 </div>

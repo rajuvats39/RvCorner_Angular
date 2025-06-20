@@ -1,48 +1,55 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BasicsModule } from './Modules/Basics/basics.module';
-import { ComponentCommunicationsModule } from './Modules/Component-Communications/component-communications.module';
-import { ComponentsModule } from './Modules/Components/components.module';
-import { DashboardModule } from './Modules/Dashboard/dashboard.module';
-import { DirectivesModule } from './Modules/Directives/directives.module';
-import { FormModule } from './Modules/Form/form.module';
-import { LifecycleHooksModule } from './Modules/Lifecycle-Hooks/lifecycle-hooks.module';
-import { MydevelopmentsModule } from './Modules/MyDevelopments/mydevelopments.module';
-import { PipeModule } from './Modules/Pipes/pipes.module';
-import { HomeComponent } from './Shared/security/home/home.component';
-import { PageNotFoundComponent } from './Shared/security/page-not-found/page-not-found.component';
-import { UserListComponent } from './Shared/security/user-list/user-list.component';
-import { UserLoginComponent } from './Shared/security/user-login/user-login.component';
-import { UserRegisterComponent } from './Shared/security/user-register/user-register.component';
-import { StateManagementRoutingModule } from './Modules/State-Management/state-management-routing.module';
-import { ServiceDIModule } from './Modules/Service-DI/service-di.module';
-import { RoutersModule } from './Modules/Router/routers.module';
-import { HTTPRoutingModule } from './Modules/HTTP/http-routing.module';
-import { AdvancedComponentsModule } from './Modules/Advanced-Components/advanced-components.module';
-import { InterviewQAModule } from './Modules/Interview-QA/interview-qa.module';
-import { BlogAppModule } from './Modules/BlogApp/blog-app.module';
+import { AdvancedComponentsModule } from './Advanced-Components/advanced-components.module';
+import { BlogAppModule } from './BlogApp/blog-app.module';
+
+import { AuthLayoutComponent } from './Shared/layouts/auth-layout/auth-layout.component';
+import { MainLayoutComponent } from './Shared/layouts/main-layout/main-layout.component';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { AuthGuard } from './authentication/auth.guard';
+import { UserListComponent } from './Dashboard/user-list/user-list.component';
+import { DashboardModule } from './Dashboard/dashboard.module';
+import { BasicsModule } from './Basics/basics.module';
+import { ComponentsModule } from './Components/components.module';
+import { ComponentCommunicationsModule } from './Component-Communications/component-communications.module';
+import { PageNotFoundComponent } from './authentication/page-not-found/page-not-found.component';
+import { DirectivesModule } from './Directives/directives.module';
+import { FormModule } from './Form/form.module';
+import { HTTPRoutingModule } from './HTTP/http-routing.module';
+import { InterviewQAModule } from './Interview-QA/interview-qa.module';
+import { LifecycleHooksModule } from './Lifecycle-Hooks/lifecycle-hooks.module';
+import { MydevelopmentsModule } from './MyDevelopments/mydevelopments.module';
+import { PipeModule } from './Pipes/pipes.module';
+import { RoutersModule } from './Router/routers.module';
+import { ServiceDIModule } from './Service-DI/service-di.module';
+import { StateManagementRoutingModule } from './State-Management/state-management-routing.module';
+
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: UserLoginComponent },
-  { path: 'register', component: UserRegisterComponent },
-  { path: 'user', component: UserListComponent },
-  { path: 'dashboard', loadChildren: () => DashboardModule },
-  { path: 'basics', loadChildren: () => BasicsModule },
-  { path: 'components', loadChildren: () => ComponentsModule },
-  { path: 'componentComm', loadChildren: () => ComponentCommunicationsModule },
-  { path: 'directives', loadChildren: () => DirectivesModule },
-  { path: 'form', loadChildren: () => FormModule },
-  { path: 'lifecycleHooks', loadChildren: () => LifecycleHooksModule },
-  { path: 'pipe', loadChildren: () => PipeModule },
-  { path: 'stateManagement', loadChildren: () => StateManagementRoutingModule },
-  { path: 'serviceDi', loadChildren: () => ServiceDIModule },
-  { path: 'http', loadChildren: () => HTTPRoutingModule },
-  { path: 'routers', loadChildren: () => RoutersModule },
-  { path: 'advComponent', loadChildren: () => AdvancedComponentsModule },
-  { path: 'myDevelopment', loadChildren: () => MydevelopmentsModule },
-  { path: 'interviewQA', loadChildren: () => InterviewQAModule },
-  { path: 'blogApp', loadChildren: () => BlogAppModule },
+  {
+    path: '', component: MainLayoutComponent, canActivate: [AuthGuard],
+    children: [
+      { path: '', redirectTo: '/authentication/signin', pathMatch: 'full' },
+      { path: 'userlist', component: UserListComponent },
+      { path: 'dashboard', loadChildren: () => DashboardModule },
+      { path: 'basics', loadChildren: () => BasicsModule },
+      { path: 'components', loadChildren: () => ComponentsModule },
+      { path: 'componentComm', loadChildren: () => ComponentCommunicationsModule },
+      { path: 'directives', loadChildren: () => DirectivesModule },
+      { path: 'form', loadChildren: () => FormModule },
+      { path: 'lifecycleHooks', loadChildren: () => LifecycleHooksModule },
+      { path: 'pipe', loadChildren: () => PipeModule },
+      { path: 'stateManagement', loadChildren: () => StateManagementRoutingModule },
+      { path: 'serviceDi', loadChildren: () => ServiceDIModule },
+      { path: 'http', loadChildren: () => HTTPRoutingModule },
+      { path: 'routers', loadChildren: () => RoutersModule },
+      { path: 'advComponent', loadChildren: () => AdvancedComponentsModule },
+      { path: 'myDevelopment', loadChildren: () => MydevelopmentsModule },
+      { path: 'interviewQA', loadChildren: () => InterviewQAModule },
+      { path: 'blogApp', loadChildren: () => BlogAppModule }
+    ]
+  },
+  { path: 'authentication', component: AuthLayoutComponent, loadChildren: () => AuthenticationModule },
   { path: '**', component: PageNotFoundComponent }
 ];
 

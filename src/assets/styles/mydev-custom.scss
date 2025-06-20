@@ -1,14 +1,170 @@
-// @import 'ngx-toastr/toastr';
-// @import 'bootstrap/scss/functions';
-// @import 'bootstrap/scss/variables';
-// @import 'bootstrap/scss/mixins';
-// @import 'ngx-toastr/toastr-bs5-alert';
-// @import 'bootstrap/dist/css/bootstrap.min.css';
-// @import '@fortawesome/fontawesome-free/css/all.css';
+@import 'ngx-toastr/toastr';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+@import 'ngx-toastr/toastr-bs5-alert';
+@import '@fortawesome/fontawesome-free/css/all.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
-// @import '/assets/styles/mydev-variables';
-// @import 'mydev-bootstrap-custom';
-// @import 'mydev-kendo-custom';
-// @import 'mydev-kendo-overrides';
-// @import 'mydev-kendo-overrides-icons';
-// @import 'bootstrap/scss/bootstrap';
+@import 'mydev-variables';
+@import 'mydev-bootstrap-custom';
+@import 'mydev-kendo-custom';
+@import 'mydev-kendo-overrides';
+@import 'mydev-kendo-overrides-icons';
+@import 'bootstrap/scss/bootstrap';
+
+.fr {
+    display: block;
+    float: right;
+}
+
+.outer {
+    height: 100vh;
+    background: linear-gradient(to top, #c9c9ff 50%, #6e6ef6 90%) no-repeat;
+}
+
+.panel-heading {
+    text-align: center;
+    margin-bottom: 10px
+}
+
+#forgot {
+    min-width: 100px;
+    margin-left: auto;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none
+}
+
+.form-inline label {
+    padding-left: 10px;
+    margin: 0;
+    cursor: pointer
+}
+
+.btn {
+    margin-top: 20px;
+    border-radius: 15px
+}
+
+.panel {
+    min-height: 380px;
+    box-shadow: 20px 20px 80px rgb(218, 218, 218);
+    border-radius: 12px;
+    margin-top: 100px
+}
+
+.input-field {
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    color: #4343ff
+}
+
+.input-field.error {
+    border: 1px solid red;
+    color: red;
+}
+
+input[type='text'],
+input[type='password'] {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    width: 100%
+}
+
+.fa-eye-slash.btn {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: relative
+}
+
+.bordert {
+    border-top: 1px solid #aaa;
+    position: relative
+}
+
+.bordert:after {
+    content: "or connect with";
+    position: absolute;
+    top: -13px;
+    left: 33%;
+    background-color:$mydev-white !important;
+    padding: 0px 8px
+}
+
+@media(max-width: 360px) {
+    #forgot {
+        margin-left: 0;
+        padding-top: 10px
+    }
+    body {
+        height: 100%
+    }
+    .container {
+        margin: 30px 0
+    }
+    .bordert:after {
+        left: 25%
+    }
+}
+
+/* Added Css for eye icon button */
+
+.bg-white {
+    background: none;
+    border: none;
+}
+
+.footer {
+    background-color:$mydev-blue !important;
+    color: $mydev-white !important;
+    text-align: center !important;
+    position: fixed;
+    padding: 10px !important;
+    width: 100%;
+    bottom: 0px;
+    height: 3rem;
+    z-index: 1000;
+}
+
+ .header {
+    background-color:$mydev-blue !important;
+    color: $mydev-white !important;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 3rem;
+  }
+
+   .side-nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25%;
+    color: $mydev-white !important;
+    cursor: pointer;
+  }
+
+  .header-nav a {
+    color: $mydev-white !important;
+    text-decoration: none;
+  }
