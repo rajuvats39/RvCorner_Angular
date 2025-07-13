@@ -20,7 +20,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const myToken = this.authService.getToken();
-    // this.start.load();
     if (myToken) {
       request = request.clone({
         setHeaders: { Authorization: `Bearer ${myToken}` }  // "Bearer "+myToken
@@ -30,8 +29,6 @@ export class AuthInterceptor implements HttpInterceptor {
       catchError((err: any) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
-            //this.toast.warning({detail:"Warning", summary:"Token is expired, Please Login again"});
-            //this.router.navigate(['login'])
             return this.handleUnAuthorizedError(request, next);
           }
         }

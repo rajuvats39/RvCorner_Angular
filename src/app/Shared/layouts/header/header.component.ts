@@ -1,5 +1,5 @@
-import { Component, DoCheck, EventEmitter, OnInit, Output } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppNotificationService } from '../../notifications/app-notification.service';
 import { AppService } from '../../../app.service';
 
@@ -10,8 +10,9 @@ import { AppService } from '../../../app.service';
   standalone: false
 })
 export class HeaderComponent implements OnInit {
+  
   @Output() sidebarToggled = new EventEmitter<boolean>();
-  public menuStatus: boolean = false;
+  public menuStatus: boolean = true;
   public isMenuRequire: boolean = false;
   public isSidebarToggleActive: boolean = false;
   public fullName: string = '';
@@ -32,7 +33,6 @@ export class HeaderComponent implements OnInit {
       this.role = role ?? '';
     });
   }
-
 
   public sidebarToggle(): void {
     this.menuStatus = !this.menuStatus;

@@ -1,14 +1,2 @@
-  .side-nav-button {
-  border: 2px solid transparent;
-  border-radius: 6px;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-  &:hover {
-    border-color: white;
-  }
-  &.active {
-    border-color: #0d6efd;
-    box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
-  }
-}
+
 

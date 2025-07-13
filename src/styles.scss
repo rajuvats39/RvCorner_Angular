@@ -186,6 +186,11 @@ ul {
   color: mydev-variables.$base-color;
 }
 
+.card-header{
+  color: mydev-variables.$mydev-white;
+  background-color: mydev-variables.$mydev-blue;
+}
+
 .page-header {
   font-size: 2rem;
   font-weight: bold;

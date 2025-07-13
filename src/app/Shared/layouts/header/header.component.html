@@ -1,23 +1,24 @@
-<header class="header d-flex align-items-center justify-content-between px-3 py-2">
+<header class="header d-flex align-items-center justify-content-between px-2 py-2">
   <!-- Sidebar Toggle -->
-  <div class="side-nav-button p-2 me-3" [class.active]="isSidebarToggleActive" title="Toggle Expand/Collapse"
+  <div class="side-nav-button p-2 me-2" [class.active]="isSidebarToggleActive" title="Toggle Expand/Collapse"
     tabindex="0" (click)="sidebarToggle()">
     <i class="fa-solid fa-bars fa-xl"></i>
   </div>
 
   <!-- Title -->
-  <span class="text-center fw-bold flex-grow-1">Rv Corner Angular Study</span>
+  <span class="fw-bold flex-grow-1">Rv Corner Angular Study</span>
 
   <!-- Navigation -->
   <nav class="header-nav d-flex align-items-center">
 
-    <!-- User Info -->
     @if(fullName){
-    <span class="fw-bold text-warning me-2">[ {{ fullName }}, {{ role }} ]</span>
+    <h3 class="mx-2">|</h3>
+    <!-- User Info -->
+    <span class="fw-bold text-warning"> {{ fullName }}, {{ role }} </span>
+    <h3 class="mx-2">|</h3>
     }
-
     <!-- Divider -->
-    <div class="vertical-line mx-3" role="separator" aria-hidden="true"></div>
+    <div class="vertical-line" role="separator" aria-hidden="true"></div>
 
     <!-- Settings -->
     <span class="header-icon me-3" title="Settings" tabindex="0" role="button">
@@ -44,4 +45,5 @@
       <em class="fa fa-sign-out"></em>
     </span>
   </nav>
+
 </header>

@@ -1,8 +1,8 @@
+import { TokenApiModel } from './models/token-api.model';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
 
-import { TokenApiModel } from './models/token-api.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AppGlobalService } from '../Shared/app-global.service';
 import { AppHttpClientService } from '../Shared/app-http-client.service';

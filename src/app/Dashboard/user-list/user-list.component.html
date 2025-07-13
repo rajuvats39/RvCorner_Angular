@@ -1,77 +1,72 @@
 <div class="row">
   <div class="col-12 rounded border border-secondary p-2 shadow-sm">
-    <div class="container">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h5 class="mb-0">User List</h5>
-        </div>
-        <div class="table-responsive">
-          <table class="table table-bordered mb-0">
-            <thead class="table-dark">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Username</th>
-                <th scope="col">Password</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let user of allUsers; index as i">
-                <td>{{ i + 1 }}</td>
+    <div class="card-header bg-primary text-white rounded border">
+      <h3 class="fw-bold ms-2 mb-0">User List</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of allUsers; index as i">
+            <td>{{ i + 1 }}</td>
 
-                <td *ngIf="editedRow !== i">{{ user.firstName }}</td>
-                <td *ngIf="editedRow === i">
-                  <input class="form-control" [(ngModel)]="editableUser.firstName" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.firstName }}</td>
+            <td *ngIf="editedRow === i">
+              <input class="form-control" [(ngModel)]="editableUser.firstName" />
+            </td>
 
-                <td *ngIf="editedRow !== i">{{ user.lastName }}</td>
-                <td *ngIf="editedRow === i">
-                  <input class="form-control" [(ngModel)]="editableUser.lastName" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.lastName }}</td>
+            <td *ngIf="editedRow === i">
+              <input class="form-control" [(ngModel)]="editableUser.lastName" />
+            </td>
 
-                <td *ngIf="editedRow !== i">{{ user.userName }}</td>
-                <td *ngIf="editedRow === i">
-                  <input class="form-control" [(ngModel)]="editableUser.userName" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.userName }}</td>
+            <td *ngIf="editedRow === i">
+              <input class="form-control" [(ngModel)]="editableUser.userName" />
+            </td>
 
-                <td *ngIf="editedRow !== i">{{ user.password }}</td>
-                <td *ngIf="editedRow === i">
-                  <input type="password" class="form-control" [(ngModel)]="editableUser.password" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.password }}</td>
+            <td *ngIf="editedRow === i">
+              <input type="password" class="form-control" [(ngModel)]="editableUser.password" />
+            </td>
 
-                <td *ngIf="editedRow !== i">{{ user.email }}</td>
-                <td *ngIf="editedRow === i">
-                  <input class="form-control" [(ngModel)]="editableUser.email" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.email }}</td>
+            <td *ngIf="editedRow === i">
+              <input class="form-control" [(ngModel)]="editableUser.email" />
+            </td>
 
-                <td *ngIf="editedRow !== i">{{ user.role }}</td>
-                <td *ngIf="editedRow === i">
-                  <input class="form-control" [(ngModel)]="editableUser.role" />
-                </td>
+            <td *ngIf="editedRow !== i">{{ user.role }}</td>
+            <td *ngIf="editedRow === i">
+              <input class="form-control" [(ngModel)]="editableUser.role" />
+            </td>
 
-                <td>
-                  <ng-container *ngIf="editedRow === i; else defaultActions">
-                    <i class="fas fa-check text-success me-4" style="cursor: pointer;" (click)="updateUser(i)"
-                      title="Save"></i>
-                    <i class="fas fa-times text-secondary" style="cursor: pointer;" (click)="cancelEdit()"
-                      title="Cancel"></i>
-                  </ng-container>
-                  <ng-template #defaultActions>
-                    <i class="fas fa-pen text-primary me-4" style="cursor: pointer;" (click)="editUser(i)"
-                      title="Edit"></i>
-                    <i class="fas fa-trash text-danger" style="cursor: pointer;" (click)="deleteUser(user.id)"
-                      title="Delete"></i>
-                  </ng-template>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+            <td>
+              <ng-container *ngIf="editedRow === i; else defaultActions">
+                <i class="fas fa-check text-success me-4" style="cursor: pointer;" (click)="updateUser(i)"
+                  title="Save"></i>
+                <i class="fas fa-times text-secondary" style="cursor: pointer;" (click)="cancelEdit()"
+                  title="Cancel"></i>
+              </ng-container>
+              <ng-template #defaultActions>
+                <i class="fas fa-pen text-primary me-4" style="cursor: pointer;" (click)="editUser(i)" title="Edit"></i>
+                <i class="fas fa-trash text-danger" style="cursor: pointer;" (click)="deleteUser(user.id)"
+                  title="Delete"></i>
+              </ng-template>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
