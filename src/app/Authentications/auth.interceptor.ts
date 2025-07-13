@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { catchError, Observable, switchMap, throwError } from 'rxjs';
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
-import { TokenApiModel } from './models/token-api.model';
 import { AppNotificationService } from '../Shared/notifications/app-notification.service';
 import { Router } from '@angular/router';
+import { TokenApiRquestModel } from './models/token-api.model-request';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
 export class AuthInterceptor implements HttpInterceptor {
 
   constructor(
+    private router: Router,
     private authService: AuthService,
-    private appNotificationService: AppNotificationService,
-    private router: Router
+    private appNotificationService: AppNotificationService
   ) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -38,11 +38,11 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   handleUnAuthorizedError(req: HttpRequest<any>, next: HttpHandler) {
-    const tokeApiModel = new TokenApiModel();
+    const tokeApiModel = new TokenApiRquestModel();
     tokeApiModel.accessToken = this.authService.getToken()!;
     tokeApiModel.refreshToken = this.authService.getRefreshToken()!;
     return this.authService.renewToken(tokeApiModel)
-      .pipe(switchMap((data: TokenApiModel) => {
+      .pipe(switchMap((data: TokenApiRquestModel) => {
         this.authService.storeRefreshToken(data.refreshToken);
         this.authService.storeToken(data.accessToken);
         req = req.clone({

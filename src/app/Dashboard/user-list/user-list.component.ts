@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AuthService } from '../../authentication/auth.service';
 import { Router } from '@angular/router';
 import { AppService } from '../../app.service';
 import { AppNotificationService } from '../../Shared/notifications/app-notification.service';
+import { AuthService } from '../../Authentications/auth.service';
 
 @Component({
   selector: 'app-user-list',
@@ -18,7 +18,6 @@ export class UserListComponent implements OnInit {
   public role: string = '';
 
   constructor(
-    private readonly router: Router,
     private readonly appNotificationService: AppNotificationService,
     private readonly appService: AppService,
     private readonly authService: AuthService

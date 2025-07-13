@@ -7,7 +7,6 @@ import { AppNotificationService } from '../../Shared/notifications/app-notificat
 import FormValidators from '../../Shared/validation/form-validators';
 import { AuthService } from '../auth.service';
 
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',

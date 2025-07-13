@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { AppNotificationService } from '../../Shared/notifications/app-notification.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import FormValidators from '../../Shared/validation/form-validators';
-
+import { AppNotificationService } from '../../Shared/notifications/app-notification.service';
 
 @Component({
   selector: 'app-signup',

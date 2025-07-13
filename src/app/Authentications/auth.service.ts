@@ -1,11 +1,11 @@
-import { TokenApiModel } from './models/token-api.model';
 import { Injectable } from '@angular/core';
 
 import { Observable } from 'rxjs';
-
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AppGlobalService } from '../Shared/app-global.service';
 import { AppHttpClientService } from '../Shared/app-http-client.service';
+import { TokenApiRquestModel } from './models/token-api.model-request';
+
 
 @Injectable({
   providedIn: 'root',
@@ -42,8 +42,8 @@ export class AuthService {
     return this.httpClient.delete<any, any>(this.appGlobalService.authenticationApiUrls.deleteUser, request);
   }
 
-   public renewToken(request: TokenApiModel): Observable<any> {
-    return this.httpClient.post<any, any>(this.appGlobalService.authenticationApiUrls.refreshToken, request);
+  public renewToken(request: TokenApiRquestModel): Observable<any> {
+    return this.httpClient.post<TokenApiRquestModel, any>(this.appGlobalService.authenticationApiUrls.refreshToken, request);
   }
 
   // Store token in localStorage

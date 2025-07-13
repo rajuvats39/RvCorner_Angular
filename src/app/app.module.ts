@@ -9,8 +9,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { ModelPopupModule } from './Shared/model-popup/model-popup.module';
 import { AppNotificationModule } from './Shared/notifications/app-notification.module';
-import { AuthInterceptor } from './authentication/auth.interceptor';
-import { LayoutModule } from './Shared/layouts/layout.module';
 import { AuthLayoutComponent } from './Shared/layouts/auth-layout/auth-layout.component';
 import { FooterComponent } from './Shared/layouts/footer/footer.component';
 import { HeaderComponent } from './Shared/layouts/header/header.component';
@@ -19,6 +17,7 @@ import { SidebarComponent } from './Shared/layouts/sidebar/sidebar.component';
 import { PageLoaderComponent } from './Shared/layouts/page-loader/page-loader.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthInterceptor } from './Authentications/auth.interceptor';
 
 @NgModule({
   declarations: [

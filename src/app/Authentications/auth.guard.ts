@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 
-import { AuthService } from './auth.service';
 import { AppNotificationService } from '../Shared/notifications/app-notification.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,9 +10,9 @@ import { AppNotificationService } from '../Shared/notifications/app-notification
 export class AuthGuard implements CanActivate {
 
     constructor(
+        private router: Router,
         private authService: AuthService,
-        private appNotificationService: AppNotificationService,
-        private router: Router
+        private appNotificationService: AppNotificationService
     ) { }
 
     canActivate(): boolean {
@@ -25,5 +25,4 @@ export class AuthGuard implements CanActivate {
             return false;
         }
     }
-
 }
